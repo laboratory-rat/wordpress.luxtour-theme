@@ -1,0 +1,45 @@
+/*
+Theme Name: test theme for luxtour patners
+Author: Oleg A. T.
+Description: Just simple theme for luxtour`s partners
+Version: 0.1
+License: GNU General Public License v2 or later
+License URI: http://www.gnu.org/licenses/gpl-2.0.html
+Tags: yellow
+Text Domain: simplest-site
+
+Theme from Mad Rat Studio©
+*/
+
+/*
+	DatePicker css
+*/
+
+.datepicker.dropdown-menu {
+  width: 300px;
+  height: 400px;
+}
+.datepicker.dropdown-menu button {
+  outline: none;
+  border: 0px;
+}
+.datepicker.dropdown-menu tbody {
+  height: 180px;
+}
+.datepicker.dropdown-menu tbody button {
+  padding: 6px;
+}
+.datepicker.dropdown-menu.datepicker-mode-1 tbody button, .datepicker.dropdown-menu.datepicker-mode-2 tbody button {
+  height: 65px;
+}
+
+.timepicker.dropdown-menu {
+  padding: 0 4px;
+}
+.timepicker.dropdown-menu button {
+  outline: none;
+  border: 0px;
+}
+.timepicker.dropdown-menu tbody button {
+  padding: 6px;
+}
