@@ -160,8 +160,8 @@ $top_menu = wp_nav_menu( $navbar_args );
         -->
 
 		<div class="nav navbar-nav navbar-right" >
-			<li>
-				<a href="#" class="dropdown-toggle" data-toggle="dropdown"><b>Locale</b> <span class="caret"></span></a>
+			<li style="padding-right: 60px;">
+				<a href="#" class="dropdown-toggle" data-toggle="dropdown">LOCALE</a>
 				<ul id="langs-dropdown" class="dropdown-menu nav navbar-nav navbar-right">
 					<li><a href="<? print($current_uri); ?>?lang=en">English</a></li>
 					<li><a href="<? print($current_uri); ?>?lang=uk">Ukranian</a></li>
@@ -170,12 +170,151 @@ $top_menu = wp_nav_menu( $navbar_args );
 			</li>
 		</div>
 
+		<div class="nav navbar-nav navbar-right" >
+			<li>
+				<a href="#" class="dropdown-toggle" data-toggle="dropdown">CONTACTS</a>
+				<ul id="langs-dropdown" class="dropdown-menu nav navbar-nav navbar-right">
+					<li><a href="<? print($current_uri); ?>?lang=en">English</a></li>
+					<li><a href="<? print($current_uri); ?>?lang=uk">Ukranian</a></li>
+					<li><a href="<? print($current_uri); ?>?lang=ru">Russian</a></li>
+				</ul>
+			</li>
+		</div>
+
+
+
+		<!--
+			<div class="container">
+				<button class="btn btn-navbar" ng-click="isCollapsed = !isCollapsed"> <span class="icon-bar"></span> <span class="icon-bar"></span> <span class="icon-bar"></span> </button> <a class="brand" href="#">Short Course</a>
+				<div class="nav-collapse" uib-collapse="isCollapsed">
+					<ul class="nav">
+						<li><a href="#"><i class="icon-home icon-white"></i> Home</a> </li>
+						<li><a href="#">Lessons</a> </li>
+						<li><a href="#">Grades</a> </li>
+					</ul>
+					<ul class="nav pull-right">
+						<li><a href="#/class"><i class="icon-upload icon-white"></i> Upload/Save</a> </li>
+						<li><a href="#/class"><i class="icon-off icon-white"></i> Save/Logout</a> </li>
+					</ul>
+				</div>
+				<!-- /.nav-collapse
+			</div>
+		</div>
+		-->
+
+
+
+		<!--
+<div class="input-group" style="">
+	<span class="input-group-addon glyphicon glyphicon-user"></span>
+	<input type="text" class="form-control" id="back-fullname" placeholder="Oleg Timofeev">
+</div>
+<div class="input-group">
+	<span class="input-group-addon glyphicon glyphicon-lock"></span>
+	<input type="password" class="form-control" id="form1-pass" />
+</div>
+<div class="input-group">
+	<span class="input-group-addon glyphicon glyphicon-lock"></span>
+	<input type="password" class="form-control" id="form1-pass" />
+</div>
+<div class="input-group">
+	<span class="input-group-addon glyphicon glyphicon-envelope"></span>
+	<input type="email" class="form-control" id="back-email" placeholder="info@luxtour.online">
+</div>
+<div class="checkbox clear">
+  <label class="">
+		<input type="checkbox"> Agree with tems
+	</label>
+</div>
+
+<button type="submit" class="btn btn-default">Приєднатися </button>
+		-->
         <? if (!is_user_logged_in()): ?>
+
+		<ul class="nav navbar-nav navbar-right">
+          <li class="dropdown white-text" id="menuLogin">
+            <a class="dropdown-toggle" href="#" data-toggle="dropdown" id="navLogin">LOGIN</a>
+            <div id="login-dropdown" class="dropdown-menu first-form">
+				<div class="header" >
+					<span>   </span>
+					<img src="http://wp-test.in/wp-content/themes/luxtour-agents/img/login-ico.png" class="img-responsive center-block"  style=" position:relative; bottom: -10px;"/>
+					<div class="white-text" style="font-weight: 500; text-align: center; position:relative; bottom: -10px;">ВХІД</div>
+				</div>
+
+				<div class="pisdushka"></div>
+              <form name="loginform" class="form" role="form" method="post" action="http://wp-test.in/wp-login.php" accept-charset="UTF-8"   id="formLogin">
+				  <div class="input-group">
+				  	<span class="input-group-addon glyphicon glyphicon-envelope"></span>
+				  	<input class="form-control" type="email" name="log" id="login-email" required>
+				  </div>
+				  <div class="input-group">
+				  	<span class="input-group-addon glyphicon glyphicon-lock"></span>
+				  	<input class="form-control" type="password" name="pwd" id="login-email" required>
+				  </div>
+				<div class="checkbox clear">
+					<label class="main-text">
+					<input name="rememberme" type="checkbox"> keep me logged-in
+					</label>
+				</div>
+				<div class="form-group clear">
+					<button type="submit" class="btn btn-default" style="color: #FFF !important;">Увійти</button>
+				</div>
+              </form>
+				<div style="margin-top: 15px; text-align: center;">
+					<a>Забули пароль?</a>
+				</div>
+            </div>
+          </li>
+        </ul>
+
+		<!-- User registration form -->
+		<ul class="nav navbar-nav navbar-right">
+          <li class="dropdown white-text" id="menuLogin">
+            <a class="dropdown-toggle" href="#" data-toggle="dropdown" id="navLogin">REGISTRATION</a>
+            <div id="register-dropdown" class="dropdown-menu first-form">
+				<div class="header" >
+					<span>   </span>
+					<img src="http://wp-test.in/wp-content/themes/luxtour-agents/img/login-ico.png" class="img-responsive center-block"  style=" position:relative; bottom: -10px;"/>
+					<div class="white-text" style="font-weight: 500; text-align: center; position:relative; bottom: -10px;">Регістрація</div>
+				</div>
+
+				<div class="pisdushka"></div>
+              <form class="form" role="form" id="formLogin" action="http://wp-test.in/wp-login.php" accept-charset="UTF-8">
+				  <div class="input-group">
+						<span class="input-group-addon glyphicon glyphicon-user"></span>
+						<input type="text" class="form-control" id="back-fullname" placeholder="Oleg Timofeev" required />
+					</div>
+					<div class="input-group">
+						<span class="input-group-addon glyphicon glyphicon-lock"></span>
+						<input type="password" class="form-control" id="form1-pass" required />
+					</div>
+					<div class="input-group">
+						<span class="input-group-addon glyphicon glyphicon-lock"></span>
+						<input type="password" class="form-control" id="form1-pass" required />
+					</div>
+					<div class="input-group">
+						<span class="input-group-addon glyphicon glyphicon-envelope"></span>
+						<input type="email" class="form-control" id="back-email" placeholder="info@luxtour.online" required>
+					</div>
+				  <div class="checkbox clear">
+					  <label style="color: rgba(0,0,0,0.87) !important;">
+							<input type="checkbox" required> Agree with tems
+						</label>
+				  </div>
+
+					<button type="submit" class="btn btn-default">Приєднатися </button>
+
+				</form>
+			</div>
+			</li>
+		</ul>
+
+		<!--
         <ul class="nav navbar-nav navbar-right">
 
-            <li>
-                <a href="#" class="dropdown-toggle" data-toggle="dropdown"><b>Login</b> <span class="caret"></span></a>
-                <ul id="login-dp" class="dropdown-menu nav navbar-nav navbar-right">
+            <li >
+                <a href="#" class="dropdown-toggle" data-toggle=""><b>Login</b> <span class="caret"></span></a>
+                <ul id="login-dp" class="nav navbar-nav navbar-right" ng-show="down">
                     <li>
                         <div class="row">
                                 <div class="col-md-12">
@@ -209,13 +348,22 @@ $top_menu = wp_nav_menu( $navbar_args );
             </li>
 
         </ul>
+
+		-->
         <? endif; ?>
 
+
         <? print($top_menu); ?>
+
+
     </div><!-- /.navbar-collapse -->
 </nav> <!-- End navbar -->
 
+<script>
 
+
+
+</script>
 
 
 

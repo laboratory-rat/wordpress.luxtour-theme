@@ -3,7 +3,6 @@
  * Template Name: dash_template
  */
 
-$l->set_cookie();
 
 get_header();
 

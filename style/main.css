@@ -58,64 +58,63 @@ body {
 
 .navbar {
     margin-top: 0px;
+
+}
+
+.navbar
+{
+	background-color: rgba(0,0,0,0) !important;
+}
+
+.nav>li>a
+{
+	font-size: 23px;
+
+	font-weight: 400;
+	padding-right: 42px;
+	color: #FFF !important;
+	opacity: 1;
 }
 
 #main-nav {
     height: 64px;
 }
 
-#login-dp {
-    margin-top: 3px;
-    min-width: 250px;
-    padding: 14px 14px 0;
-    overflow: hidden;
-    background-color: rgba(255, 255, 255, .8);
-}
+#login-dropdown
+{
+	width: 344px;
+	height: 337px;
 
-#login-dp .help-block {
-    font-size: 12px
-}
-
-#login-dp .bottom {
-    background-color: rgba(255, 255, 255, .8);
-    border-top: 1px solid #ddd;
-    clear: both;
-    padding: 14px;
-}
-
-#login-dp .social-buttons {
-    margin: 12px 0
-}
-
-#login-dp .social-buttons a {
-    width: 49%;
-}
-
-#login-dp .form-group {
-    margin-bottom: 10px;
-}
-
-.btn-fb {
-    color: #fff;
-    background-color: #3b5998;
-}
-
-.btn-fb:hover {
-    color: #fff;
-    background-color: #496ebc
-}
-
-.btn-tw {
-    color: #fff;
-    background-color: #55acee;
-}
-
-.btn-tw:hover {
-    color: #fff;
-    background-color: #59b5fa;
+	position: absolute;
+	margin-top: 74px;
+	background-color: #DFDFDF;
 }
 
 
+
+
+#register-dropdown
+{
+	width: 344px;
+	height: 412px;
+
+	position: absolute;
+	margin-top: 74px;
+	background-color: #DFDFDF;
+}
+
+
+
+.first-form form .btn
+{
+	width: 80%;
+	color: #FFF;
+	background-color: #009688;
+}
+#formLogin
+{
+
+}
 
 #image-wall {
     height: 288px;
@@ -159,24 +158,146 @@ body {
     font-size: 20px;
 }
 
-#first-form {
-	position: absolute;
-    width: 40%;
-    height: 70%;
-    top: 10%;
-    right: -50%;
-    background-color: rgba(0,0,0,0.42);
-	 -webkit-transition: 0.5s ease-out 0.5s;
-     -moz-transition: 0.5s ease-out 0.5s;
-     -o-transition: 0.5s ease-out 0.5s;
-     transition:  0.5s ease-out 0.5s;
+
+
+.first-form
+{
+	position: fixed;
+	width: 101%;
+	height: 100%;
+	top: 0px;
+	left: 0px;
+
+	opacity: 1;
+
+	background-color: rgba(0,0,0,0.42);
 
 }
 
-#first-form.active
+.first-form.ng-hide
 {
-	right: 10%;
+	opacity: 0;
+}
 
+
+.first-form.ng-hide-add, .my-element.ng-hide-remove {
+	transition: 0.25s linear all;
+	-webkit-transition: 0.25s linear all;
+	-moz-transition: 0.25s linear all;
+	-o-transition: 0.25s linear all ;
+}
+
+.first-form.ng-hide-add { opacity: 1;  }
+.first-form.ng-hide-add.ng-hide-add-active { opacity: 0; }
+.first-form.ng-hide-remove { opacity: 0; }
+.first-form.ng-hide-remove.ng-hide-remove-active { opacity: 1; }
+
+.first-form>.panel
+{
+    width: 30%;
+    max-width: 400px;
+    min-width: 264px;
+
+    max-height: 585px;
+    min-height: 385px;
+
+    background-color: #DFDFDF;
+
+    margin: 0 auto;
+    margin-top: 5%;
+
+}
+
+.first-form .pisdushka
+{
+	background: url(../img/land-form-element.png) no-repeat 49% center;
+
+	-o-background-size: contain;
+	-moz-background-size: contain;
+	-webkit-background-size: contain;
+	background-size: contain;
+
+	height: 10px;
+	width: 100%;
+}
+
+.first-form .header img
+{
+	height: 50%;
+    margin: 0 auto;
+    margin-top: -5%;
+}
+
+.first-form .header
+{
+    position: relative;
+    display: block;
+    text-align: right;
+    width: 100%;
+    color: black;
+    font-size: 18px;
+    padding-right: 9px;
+	height: 83px;
+	background-color: #009688;
+
+	/*
+	background: url(../img/land-form-element.png) no-repeat center center;
+
+	-o-background-size: cover;
+	-moz-background-size: cover;
+	-webkit-background-size: cover;
+	background-size: cover;
+	*/
+}
+
+
+.first-form form
+{
+	padding: 0px 25px 0px 25px;
+	margin-top: 25px;
+}
+
+.first-form input
+{
+	padding-left: 10px;
+}
+
+.first-form .glyphicon
+{
+	background-color: #009688;
+	color: #FFF;
+
+	font-size: 16px;
+
+	border-radius: 0px;
+	top: 0px;
+}
+
+.first-form .form-group
+{
+	padding-bottom: 0px;
+	margin: 0px;
+	margin-bottom: -9px;
+}
+
+.first-form form>div
+{
+	border: 1px solid #009688;
+	margin-top: 14px;
+	background-color: #FAFAFA;
+}
+
+.first-form form .clear
+{
+	border: 0px solid #009688;
+	background-color: #DFDFDF;
+}
+
+.first-form form .btn
+{
+	width: 100%;
+	color: #FFF;
+	background-color: #009688;
 }
 
 .white-text
@@ -211,7 +332,7 @@ body {
 
 #second-back
 {
-    background: url(http://wp-test.in/wp-content/themes/luxtour_test_theame/img/background-2.png) center center;
+    background: url(http://wp-test.in/wp-content/themes/luxtour-agents/img/background-2.png) center center;
     background-size: cover;
     height: 100%;
 
@@ -474,10 +595,6 @@ body {
 .checkbox input[type=checkbox]:checked + .checkbox-material .check:before, label.checkbox-inline input[type=checkbox]:checked + .checkbox-material .check:before
 {
     color: #feba00;
-}
-
-input[placeholder], [placeholder], *[placeholder] {
-    color: red !important;
 }
 
 

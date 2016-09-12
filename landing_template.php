@@ -6,7 +6,15 @@
 // $l->set_page("landing");
 // $l->_l("key");
 
+
+/*
+echo"landing";
+
 $l->set_cookie();
+
+echo "land - 2";
+
+*/
 
 get_header();
 
@@ -26,19 +34,19 @@ get_header();
         </span>
 						<div class="row second-page-head">
 							<div class="row" style="margin-top: 42px;">
-								<div class="col-md-2 col-lg-1 col-lg-push-1 hide-sm hide-xs"> <img src="http://wp-test.in/wp-content/themes/luxtour_test_theame/img/land-checkbox.png" class="img-responsive center-block" /> </div>
+								<div class="col-md-2 col-lg-1 col-lg-push-1 hide-sm hide-xs"> <img src="http://wp-test.in/wp-content/themes/luxtour-agents/img/land-checkbox.png" class="img-responsive center-block" /> </div>
 								<div class="col-xs-12 col-sm-12 col-md-10 col-lg-10 col-lg-push-1" style="min-height: 40px; margin-top: 5px;">
 									<? print($l->_l('1-list-1'));?>
 								</div>
 							</div>
 							<div class="row" style="margin-top: 21px;">
-								<div class="col-md-2 col-lg-1 col-lg-push-1 hide-sm hide-xs"> <img src="http://wp-test.in/wp-content/themes/luxtour_test_theame/img/land-checkbox.png" class="img-responsive center-block" /> </div>
+								<div class="col-md-2 col-lg-1 col-lg-push-1 hide-sm hide-xs"> <img src="http://wp-test.in/wp-content/themes/luxtour-agents/img/land-checkbox.png" class="img-responsive center-block" /> </div>
 								<div class="col-xs-12 col-sm-12 col-md-5 col-lg-6 col-lg-push-1" style="min-height: 40px; margin-top: 5px;">
 									<? print($l->_l('1-list-2'));?>
 								</div>
 							</div>
 							<div class="row" style="margin-top: 21px;">
-								<div class="col-md-2 col-lg-1 col-lg-push-1 hide-sm hide-xs"> <img src="http://wp-test.in/wp-content/themes/luxtour_test_theame/img/land-checkbox.png" class="img-responsive center-block" /> </div>
+								<div class="col-md-2 col-lg-1 col-lg-push-1 hide-sm hide-xs"> <img src="http://wp-test.in/wp-content/themes/luxtour-agents/img/land-checkbox.png" class="img-responsive center-block" /> </div>
 								<div class="col-xs-12 col-sm-12 col-md-5 col-lg-6 col-lg-push-1" style="min-height: 40px; margin-top: 5px;">
 									<? print($l->_l('1-list-3'));?>
 								</div>
@@ -48,22 +56,54 @@ get_header();
 					<div class="col-xs-8 col-xs-push-4 col-md-12 col-sm-push-4 col-md-push-3 col-lg-push-0" style="position: absolute; bottom: 50px;"> <a href="#" class="btn btn-raised first-section-btn center-block" ng-click="formActive = !formActive"><? print($l->_l('1-btn'));?> </a> </div>
 				</div>
 
-				<div class="row" id="first-form" ng-class="{active: formActive == true}">
-					<div class="col-xs-8 col-sm-6 col-md-5 col-lg-4">
+
+
+
+
+				<div class="row first-form" ng-hide="formActive == false">
+					<div class="panel">
+						<div class="header" >
+						<span class="white-text" ng-click="formActive = !formActive" style="font-size: 22px; cursor: pointer;">x</span>
+							<img src="http://wp-test.in/wp-content/themes/luxtour-agents/img/land-form-header.png" class="img-responsive center-block" />
+							<div class="white-text" style="font-weight: 500; text-align: center;">РЕГІСТРАЦІЯ</div>
+						</div>
+
+						<div class="pisdushka"></div>
 						<form>
-							<div class="form-group">
-								<label for="back-fullname">Full name</label>
-								<input type="text" class="form-control" id="back-fullname" placeholder="Oleg Timofeev"> </div>
-							<div class="form-group">
-								<label for="back-email">Email</label>
-								<input type="email" class="form-control" id="back-email" placeholder="info@luxtour.online"> </div>
-							<button type="submit" class="btn btn-default">Submit </button>
+							<div class="input-group" style="">
+								<span class="input-group-addon glyphicon glyphicon-user"></span>
+								<input type="text" class="form-control" id="back-fullname" placeholder="Oleg Timofeev">
+							</div>
+							<div class="input-group">
+								<span class="input-group-addon glyphicon glyphicon-lock"></span>
+								<input type="password" class="form-control" id="form1-pass" />
+							</div>
+							<div class="input-group">
+								<span class="input-group-addon glyphicon glyphicon-lock"></span>
+								<input type="password" class="form-control" id="form1-pass" />
+							</div>
+							<div class="input-group">
+								<span class="input-group-addon glyphicon glyphicon-envelope"></span>
+								<input type="email" class="form-control" id="back-email" placeholder="info@luxtour.online">
+							</div>
+						  <div class="checkbox clear">
+							  <label class="">
+									<input type="checkbox"> Agree with tems
+						  		</label>
+						  </div>
+
+							<button type="submit" class="btn btn-default">Приєднатися </button>
+
 						</form>
 					</div>
 				</div>
 
+
 			</div>
 		</div>
+
+
+
 		<!-- second view -->
 		<div class="continer-fluid section" id="second-section">
 			<div style="position: absolute; top: 0px; height: 100%; width: 100%;">
@@ -72,9 +112,9 @@ get_header();
                 color: #FEBA00;
                 font-size: 41px;
                 font-weight: 400;">
-                <img src="http://wp-test.in/wp-content/themes/luxtour_test_theame/img/land-line-yello.png" />
+                <img src="http://wp-test.in/wp-content/themes/luxtour-agents/img/land-line-yello.png" />
                 <? print($l->_l('2-header'));?>
-                <img src="http://wp-test.in/wp-content/themes/luxtour_test_theame/img/land-line-yello.png" /></span> </center>
+                <img src="http://wp-test.in/wp-content/themes/luxtour-agents/img/land-line-yello.png" /></span> </center>
 					<center style="    width: 75%;
     margin: 0 auto;"> <span style="
                 display: block;
@@ -85,13 +125,13 @@ get_header();
 			</span> </center>
 				</div>
 				<center>
-					<div style="margin-top: 3%;"><img src="http://wp-test.in/wp-content/themes/luxtour_test_theame/img/land-line-white.png" class="img-responsive" /></div>
+					<div style="margin-top: 3%;"><img src="http://wp-test.in/wp-content/themes/luxtour-agents/img/land-line-white.png" class="img-responsive" /></div>
 				</center>
 				<div style="width:80%; margin:0 auto; margin-top: 5%">
 					<div class="row text-18">
 						<div class="col-xs-3 white-text">
 							<center>
-								<div><img src="http://wp-test.in/wp-content/themes/luxtour_test_theame/img/land-ico-1.png" class="img-responsive" style="    max-width: 119px; max-height: 119px;" /></div>
+								<div><img src="http://wp-test.in/wp-content/themes/luxtour-agents/img/land-ico-1.png" class="img-responsive" style="    max-width: 119px; max-height: 119px;" /></div>
 							</center>
 							<div class="text-center" style="margin-top: 16px;">
 								<? print($l->_l('2-list-1'));?>
@@ -99,7 +139,7 @@ get_header();
 						</div>
 						<div class="col-xs-3 white-text">
 							<center>
-								<div><img src="http://wp-test.in/wp-content/themes/luxtour_test_theame/img/land-ico-2.png" class="img-responsive" style="    max-width: 119px; max-height: 119px;" /></div>
+								<div><img src="http://wp-test.in/wp-content/themes/luxtour-agents/img/land-ico-2.png" class="img-responsive" style="    max-width: 119px; max-height: 119px;" /></div>
 							</center>
 							<div class="text-center" style="margin-top: 16px;">
 								<? print($l->_l('2-list-2'));?>
@@ -107,7 +147,7 @@ get_header();
 						</div>
 						<div class="col-xs-3 white-text">
 							<center>
-								<div><img src="http://wp-test.in/wp-content/themes/luxtour_test_theame/img/land-ico-3.png" class="img-responsive" style="    max-width: 119px; max-height: 119px;" /></div>
+								<div><img src="http://wp-test.in/wp-content/themes/luxtour-agents/img/land-ico-3.png" class="img-responsive" style="    max-width: 119px; max-height: 119px;" /></div>
 							</center>
 							<div class="text-center" style="margin-top: 16px;">
 								<? print($l->_l('2-list-3'));?>
@@ -115,7 +155,7 @@ get_header();
 						</div>
 						<div class="col-xs-3 white-text">
 							<center>
-								<div><img src="http://wp-test.in/wp-content/themes/luxtour_test_theame/img/land-ico-4.png" class="img-responsive" style="    max-width: 119px; max-height: 119px;" /></div>
+								<div><img src="http://wp-test.in/wp-content/themes/luxtour-agents/img/land-ico-4.png" class="img-responsive" style="    max-width: 119px; max-height: 119px;" /></div>
 							</center>
 							<div class="text-center" style="margin-top: 16px;">
 								<? print($l->_l('2-list-4'));?>
@@ -150,23 +190,23 @@ get_header();
 						</div>
 						<div style="width: 55%; min-width: 700px; margin-top: 56px; margin-left: 73px; height: 100%;" class="text-17">
 							<div class="row" style="margin-top: 10px;  min-height: 70px;">
-								<div class="col-xs-2" style="min-width: 72px; min-height: 72px; height: 100%;"> <img src="http://wp-test.in/wp-content/themes/luxtour_test_theame/img/land-3-1.png" class="img-responsive" /> </div>
+								<div class="col-xs-2" style="min-width: 72px; min-height: 72px; height: 100%;"> <img src="http://wp-test.in/wp-content/themes/luxtour-agents/img/land-3-1.png" class="img-responsive" /> </div>
 								<div class="col-xs-10" style="height: 100%;"> <span style="vertical-alin:middle;"><? print($l->_l('3-list-1'));?></span> </div>
 							</div>
 							<div class="row" style="margin-top: 10px;  min-height: 70px;">
-								<div class="col-xs-2" style="min-width: 72px; min-height: 72px; height: 100%;"> <img src="http://wp-test.in/wp-content/themes/luxtour_test_theame/img/land-3-3.png" class="img-responsive" /> </div>
+								<div class="col-xs-2" style="min-width: 72px; min-height: 72px; height: 100%;"> <img src="http://wp-test.in/wp-content/themes/luxtour-agents/img/land-3-3.png" class="img-responsive" /> </div>
 								<div class="col-xs-10">
 									<? print($l->_l('3-list-2'));?>
 								</div>
 							</div>
 							<div class="row" style="margin-top: 10px; min-height: 70px;">
-								<div class="col-xs-2" style="min-width: 72px; min-height: 72px; height: 100%;"> <img src="http://wp-test.in/wp-content/themes/luxtour_test_theame/img/land-3-2.png" class="img-responsive" /> </div>
+								<div class="col-xs-2" style="min-width: 72px; min-height: 72px; height: 100%;"> <img src="http://wp-test.in/wp-content/themes/luxtour-agents/img/land-3-2.png" class="img-responsive" /> </div>
 								<div class="col-xs-10">
 									<? print($l->_l('3-list-3'));?>
 								</div>
 							</div>
 							<div class="row" style="margin-top: 10px;  min-height: 70px;">
-								<div class="col-xs-2" style="min-width: 72px; min-height: 72px; height: 100%;"> <img src="http://wp-test.in/wp-content/themes/luxtour_test_theame/img/land-3-4.png" class="img-responsive" /> </div>
+								<div class="col-xs-2" style="min-width: 72px; min-height: 72px; height: 100%;"> <img src="http://wp-test.in/wp-content/themes/luxtour-agents/img/land-3-4.png" class="img-responsive" /> </div>
 								<div class="col-xs-10">
 									<? print($l->_l('3-list-4'));?>
 								</div>
@@ -183,13 +223,13 @@ get_header();
 							</div>
 							<div class="center-block col-xs-12 col-sm-8 col-md-6 col-lg-6" style="width: 100%; margin-top: 3%">
 								<div style="width: 900px; margin: 0 auto;">
-									<div class="block-center"> <img src="http://wp-test.in/wp-content/themes/luxtour_test_theame/img/ico-4-1.png" class="center-block img-responsive" /> <span style="display:block; padding-top: 20px;"><b><? print($l->_l('4-list-1'));?></b></span> </div>
-									<div class="block-center small-block-center hide-xs hide-sm"> <img src="http://wp-test.in/wp-content/themes/luxtour_test_theame/img/ico-4-s.png" class="center-block img-responsive " /> </div>
-									<div class="block-center"> <img src="http://wp-test.in/wp-content/themes/luxtour_test_theame/img/ico-4-2.png" class="center-block img-responsive" /> <span style="display:block; padding-top: 20px;"><b><? print($l->_l('4-list-2'));?></b></span> </div>
-									<div class="block-center small-block-center hide-xs hide-sm"> <img src="http://wp-test.in/wp-content/themes/luxtour_test_theame/img/ico-4-s.png" class="center-block img-responsive" /> </div>
-									<div class="block-center"> <img src="http://wp-test.in/wp-content/themes/luxtour_test_theame/img/ico-4-3.png" class="center-block img-responsive" /> <span style="display:block; padding-top: 20px;"><b><? print($l->_l('4-list-3'));?></b></span> </div>
-									<div class="block-center small-block-center hide-xs hide-sm"> <img src="http://wp-test.in/wp-content/themes/luxtour_test_theame/img/ico-4-s.png" class="center-block img-responsive" /> </div>
-									<div class="block-center"> <img src="http://wp-test.in/wp-content/themes/luxtour_test_theame/img/ico-4-4.png" class="center-block img-responsive" /> <span style="display:block; padding-top: 20px;"><b><? print($l->_l('4-list-4'));?></b></span> </div>
+									<div class="block-center"> <img src="http://wp-test.in/wp-content/themes/luxtour-agents/img/ico-4-1.png" class="center-block img-responsive" /> <span style="display:block; padding-top: 20px;"><b><? print($l->_l('4-list-1'));?></b></span> </div>
+									<div class="block-center small-block-center hide-xs hide-sm"> <img src="http://wp-test.in/wp-content/themes/luxtour-agents/img/ico-4-s.png" class="center-block img-responsive " /> </div>
+									<div class="block-center"> <img src="http://wp-test.in/wp-content/themes/luxtour-agents/img/ico-4-2.png" class="center-block img-responsive" /> <span style="display:block; padding-top: 20px;"><b><? print($l->_l('4-list-2'));?></b></span> </div>
+									<div class="block-center small-block-center hide-xs hide-sm"> <img src="http://wp-test.in/wp-content/themes/luxtour-agents/img/ico-4-s.png" class="center-block img-responsive" /> </div>
+									<div class="block-center"> <img src="http://wp-test.in/wp-content/themes/luxtour-agents/img/ico-4-3.png" class="center-block img-responsive" /> <span style="display:block; padding-top: 20px;"><b><? print($l->_l('4-list-3'));?></b></span> </div>
+									<div class="block-center small-block-center hide-xs hide-sm"> <img src="http://wp-test.in/wp-content/themes/luxtour-agents/img/ico-4-s.png" class="center-block img-responsive" /> </div>
+									<div class="block-center"> <img src="http://wp-test.in/wp-content/themes/luxtour-agents/img/ico-4-4.png" class="center-block img-responsive" /> <span style="display:block; padding-top: 20px;"><b><? print($l->_l('4-list-4'));?></b></span> </div>
 								</div>
 							</div>
 						</div>
@@ -250,6 +290,8 @@ get_header();
 						</div>
 					</div>
 				</div>
+
+
 				<script>
 					function initMap() {
 						var lux = {
@@ -272,5 +314,11 @@ get_header();
 				</script>
 				<script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBxMgwnsBsuS-N0L8BjstR8BHkMnjFIcIw&callback=initMap">
 				</script>
-				<script type="text/javascript" src="http://wp-test.in/wp-content/themes/luxtour_test_theame/js/landing-parallax.js"></script>
+				<script type="text/javascript" src="http://wp-test.in/wp-content/themes/luxtour-agents/js/landing-parallax.js"></script>
 				<? get_footer(); ?>
+
+
+				<!-- Modal windows -->
+
+
+		<!-- end modal -->

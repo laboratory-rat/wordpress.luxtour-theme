@@ -29,7 +29,7 @@ $('#fullpage').fullpage({
 */
 // angular scroll
 
-var app = angular.module('landing', []);
+var app = angular.module('landing', ['ngAnimate']);
 app.controller('landCtrl', function ($scope) {
 	$scope.formActive = false;
 
