@@ -159,6 +159,26 @@ body {
     font-size: 20px;
 }
 
+#first-form {
+	position: absolute;
+    width: 40%;
+    height: 70%;
+    top: 10%;
+    right: -50%;
+    background-color: rgba(0,0,0,0.42);
+	 -webkit-transition: 0.5s ease-out 0.5s;
+     -moz-transition: 0.5s ease-out 0.5s;
+     -o-transition: 0.5s ease-out 0.5s;
+     transition:  0.5s ease-out 0.5s;
+
+}
+
+#first-form.active
+{
+	right: 10%;
+
+}
+
 .white-text
 {
     color: #FFF;
@@ -371,6 +391,17 @@ body {
 	background-position: 0 -100px;
 }
 
+
+#five-form
+{
+	text-align: left;
+}
+
+#five-form button {
+    color: #fff;
+    display: block;
+    margin: 0 auto;
+}
 
 .block-center
 {

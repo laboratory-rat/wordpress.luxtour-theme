@@ -29,17 +29,9 @@ $('#fullpage').fullpage({
 */
 // angular scroll
 
-angular.module('landing',[])
-    .controller('landCtrl',function($window, $scope){
-        $scope.scrollPos = 0;
+var app = angular.module('landing', []);
+app.controller('landCtrl', function ($scope) {
+	$scope.formActive = false;
 
-        console.log("123");
+});
 
-        $window.onscroll = function(){
-            $scope.scrollPos = document.body.scrollTop || document.documentElement.scrollTop || 0;
-
-            console.log($scope.scrollPos);
-
-            $scope.$apply();
-        };
-    });
