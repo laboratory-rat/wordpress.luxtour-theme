@@ -1,11 +1,7 @@
 <?
 wp_footer();
-// Footer
-?>
 
-<div class="container top-50">
-Footer content here;
-</div>
+?>
 <script src="<? print(get_template_directory_uri() . '/js/ripples.js'); ?>"></script>
 <script src="<? print(get_template_directory_uri() . '/js/tether.js'); ?>"></script>
 <script src="<? print(get_template_directory_uri() . '/js/material.js'); ?>"></script>

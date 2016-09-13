@@ -63,6 +63,8 @@ $top_menu = wp_nav_menu( $navbar_args );
 
 <script src="http://ajax.aspnetcdn.com/ajax/jQuery/jquery-1.12.4.min.js"></script>
 
+
+
 <!--
 
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.0/css/font-awesome.min.css">
@@ -130,7 +132,7 @@ $top_menu = wp_nav_menu( $navbar_args );
 
 
 
-<nav id="main-nav" class="navbar navbar-default navbar-fixed-top" role="navigation" style="background-color: rgba(0,0,0,0.2);">
+<nav id="main-nav" class="navbar navbar-default navbar-fixed-top" role="navigation">
     <!-- Brand and toggle get grouped for better mobile display -->
     <div class="navbar-header">
         <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">

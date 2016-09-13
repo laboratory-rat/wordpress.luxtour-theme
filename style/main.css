@@ -52,21 +52,14 @@ body {
     margin-bottom: 50px;
 }
 
-.footer {
-    background-color: #121212;
-}
 
 .navbar {
     margin-top: 0px;
 
 }
 
-.navbar
-{
-	background-color: rgba(0,0,0,0) !important;
-}
 
-.nav>li>a
+#main-nav .nav>li>a
 {
 	font-size: 23px;
 
@@ -78,6 +71,8 @@ body {
 
 #main-nav {
     height: 64px;
+	/* background-color: rgba(0,0,0,0); */
+	background-color: rgba(38,50,56,0.6);
 }
 
 #login-dropdown
@@ -148,12 +143,12 @@ body {
 
 .first-section-btn
 {
-    width: 25%;
+    width: 20%;
     margin: 0 auto;
     height: 50px;
-    background-color: rgba(0,0,0,0.32) !important;
-    color: #27c17d !important;
-    border: 4px solid #27c17d;
+    background-color: #009688!important;
+    color: #FFF !important;
+    border: 4px solid #009688;
     border-radius: 50px;
     font-size: 20px;
 }
@@ -489,7 +484,7 @@ body {
 #five-nav
 {
 	height: 64px;
-	background-color: #313233;
+	background-color: #FAFAFA;
 }
 
 #five-up
