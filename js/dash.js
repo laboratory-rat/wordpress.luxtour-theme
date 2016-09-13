@@ -197,12 +197,10 @@ tour.controller("tourController", function($scope, $http, $mdToast)
         $data.customers = $scope.customers;
         $data.date_from = $scope.date_from;
         $data.date_until = $scope.date_until;
-        $data.agent_id = angular.element('#agent_id').val();
+        $data.api_key = angular.element('#api_key').val();
         $data.comment = $scope.comment;
 
         var $data_json = angular.toJson($data);
-
-        console.log($data_json);
 
         $http.put('http://wp-test.in/wp-json/luxtour_api/v1/add_order/', $data_json)
         .then(function(response)
@@ -297,7 +295,7 @@ tour.controller('newsCtrl', function($scope, $rootScope, $http)
 tour.controller("statCtrl", function($scope, $http)
 {
     $scope.orders = null;
-    $scope.agent_id = -1;
+    $scope.api_key = -1;
 
 
     angular.element(document).ready(function () {
@@ -306,9 +304,9 @@ tour.controller("statCtrl", function($scope, $http)
 
     $scope.updateData = function()
     {
-        $scope.agent_id =angular.element('#agent_id').val();
+        $scope.api_key =angular.element('#api_key').val();
 
-        $http.get('http://wp-test.in/wp-json/luxtour_api/v1/get_stats/' + $scope.agent_id).success(function(data, status, headers, config) {
+        $http.get('http://wp-test.in/wp-json/luxtour_api/v1/get_stats/' + $scope.api_key).success(function(data, status, headers, config) {
             $scope.orders = data;
             console.log("get stats");
         }).error(function(data, status, headers, config) {
@@ -358,7 +356,7 @@ tour.controller("chartCtrl", function($scope, $rootScope, $http, $interval)
     $scope.updateCharts = function()
     {
         //orders
-
+		console.log('http://wp-test.in/wp-json/luxtour_api/v1/statistics/orders/'+$scope.date+'/' + $scope.chart_id);
 
         $http.get('http://wp-test.in/wp-json/luxtour_api/v1/statistics/orders/'+$scope.date+'/' + $scope.chart_id).success(function(data, status, headers, config) {
 

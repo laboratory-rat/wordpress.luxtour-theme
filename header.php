@@ -127,7 +127,14 @@ $top_menu = wp_nav_menu( $navbar_args );
 </head>
 <body <? get_body_class(); ?>>
 
-<input type="hidden" id="agent_id" value="<? print(get_current_user_id()); ?>" />
+<?
+if (!isset($luw))
+{
+	$luw = new luxtour_user_worker();
+}
+?>
+
+<input type="hidden" id="api_key" value="<? print($luw->get_key()); ?>" />
 
 
 
@@ -165,72 +172,14 @@ $top_menu = wp_nav_menu( $navbar_args );
 			<li style="padding-right: 60px;">
 				<a href="#" class="dropdown-toggle" data-toggle="dropdown">LOCALE</a>
 				<ul id="langs-dropdown" class="dropdown-menu nav navbar-nav navbar-right">
-					<li><a href="<? print($current_uri); ?>?lang=en">English</a></li>
-					<li><a href="<? print($current_uri); ?>?lang=uk">Ukranian</a></li>
-					<li><a href="<? print($current_uri); ?>?lang=ru">Russian</a></li>
+					<div class="" style="width:100%; height: 24px; background-color: #009688; margin-top: -5px;"></div>
+					<li><a href="<? print($current_uri); ?>?lang=en" style="font-size: 20px; width: 160px; color: rgba(0,0,0,0.87) !important;">English</a></li>
+					<li><a href="<? print($current_uri); ?>?lang=uk" style="font-size: 20px; width: 160px; color: rgba(0,0,0,0.87) !important;">Ukranian</a></li>
+					<li><a href="<? print($current_uri); ?>?lang=ru" style="font-size: 20px; width: 160px; color: rgba(0,0,0,0.87) !important;">Russian</a></li>
 				</ul>
 			</li>
 		</div>
 
-		<div class="nav navbar-nav navbar-right" >
-			<li>
-				<a href="#" class="dropdown-toggle" data-toggle="dropdown">CONTACTS</a>
-				<ul id="langs-dropdown" class="dropdown-menu nav navbar-nav navbar-right">
-					<li><a href="<? print($current_uri); ?>?lang=en">English</a></li>
-					<li><a href="<? print($current_uri); ?>?lang=uk">Ukranian</a></li>
-					<li><a href="<? print($current_uri); ?>?lang=ru">Russian</a></li>
-				</ul>
-			</li>
-		</div>
-
-
-
-		<!--
-			<div class="container">
-				<button class="btn btn-navbar" ng-click="isCollapsed = !isCollapsed"> <span class="icon-bar"></span> <span class="icon-bar"></span> <span class="icon-bar"></span> </button> <a class="brand" href="#">Short Course</a>
-				<div class="nav-collapse" uib-collapse="isCollapsed">
-					<ul class="nav">
-						<li><a href="#"><i class="icon-home icon-white"></i> Home</a> </li>
-						<li><a href="#">Lessons</a> </li>
-						<li><a href="#">Grades</a> </li>
-					</ul>
-					<ul class="nav pull-right">
-						<li><a href="#/class"><i class="icon-upload icon-white"></i> Upload/Save</a> </li>
-						<li><a href="#/class"><i class="icon-off icon-white"></i> Save/Logout</a> </li>
-					</ul>
-				</div>
-				<!-- /.nav-collapse
-			</div>
-		</div>
-		-->
-
-
-
-		<!--
-<div class="input-group" style="">
-	<span class="input-group-addon glyphicon glyphicon-user"></span>
-	<input type="text" class="form-control" id="back-fullname" placeholder="Oleg Timofeev">
-</div>
-<div class="input-group">
-	<span class="input-group-addon glyphicon glyphicon-lock"></span>
-	<input type="password" class="form-control" id="form1-pass" />
-</div>
-<div class="input-group">
-	<span class="input-group-addon glyphicon glyphicon-lock"></span>
-	<input type="password" class="form-control" id="form1-pass" />
-</div>
-<div class="input-group">
-	<span class="input-group-addon glyphicon glyphicon-envelope"></span>
-	<input type="email" class="form-control" id="back-email" placeholder="info@luxtour.online">
-</div>
-<div class="checkbox clear">
-  <label class="">
-		<input type="checkbox"> Agree with tems
-	</label>
-</div>
-
-<button type="submit" class="btn btn-default">Приєднатися </button>
-		-->
         <? if (!is_user_logged_in()): ?>
 
 		<ul class="nav navbar-nav navbar-right">
@@ -263,7 +212,7 @@ $top_menu = wp_nav_menu( $navbar_args );
 				</div>
               </form>
 				<div style="margin-top: 15px; text-align: center;">
-					<a>Забули пароль?</a>
+					<a href="/wp-login.php?action=lostpassword">Забули пароль?</a>
 				</div>
             </div>
           </li>
@@ -276,27 +225,27 @@ $top_menu = wp_nav_menu( $navbar_args );
             <div id="register-dropdown" class="dropdown-menu first-form">
 				<div class="header" >
 					<span>   </span>
-					<img src="http://wp-test.in/wp-content/themes/luxtour-agents/img/login-ico.png" class="img-responsive center-block"  style=" position:relative; bottom: -10px;"/>
+					<img src="http://wp-test.in/wp-content/themes/luxtour-agents/img/land-form-header.png" class="img-responsive center-block"  style=" position:relative; bottom: -10px;"/>
 					<div class="white-text" style="font-weight: 500; text-align: center; position:relative; bottom: -10px;">Регістрація</div>
 				</div>
 
 				<div class="pisdushka"></div>
-              <form class="form" role="form" id="formLogin" action="http://wp-test.in/wp-login.php" accept-charset="UTF-8">
+              <form  method="post" action="<?print($self_url);?>" role="form">
 				  <div class="input-group">
 						<span class="input-group-addon glyphicon glyphicon-user"></span>
-						<input type="text" class="form-control" id="back-fullname" placeholder="Oleg Timofeev" required />
+						<input type="text" name="fullname" class="form-control" id="back-fullname" placeholder="Oleg Timofeev" required />
 					</div>
 					<div class="input-group">
 						<span class="input-group-addon glyphicon glyphicon-lock"></span>
-						<input type="password" class="form-control" id="form1-pass" required />
+						<input type="password" name="password" class="form-control" id="form1-pass" required />
 					</div>
 					<div class="input-group">
 						<span class="input-group-addon glyphicon glyphicon-lock"></span>
-						<input type="password" class="form-control" id="form1-pass" required />
+						<input type="password" name="password_confirm" class="form-control" id="form1-pass" required />
 					</div>
 					<div class="input-group">
 						<span class="input-group-addon glyphicon glyphicon-envelope"></span>
-						<input type="email" class="form-control" id="back-email" placeholder="info@luxtour.online" required>
+						<input type="email" name="email" class="form-control" id="back-email" placeholder="info@luxtour.online" required>
 					</div>
 				  <div class="checkbox clear">
 					  <label style="color: rgba(0,0,0,0.87) !important;">
@@ -304,7 +253,7 @@ $top_menu = wp_nav_menu( $navbar_args );
 						</label>
 				  </div>
 
-					<button type="submit" class="btn btn-default">Приєднатися </button>
+					<button type="submit" name="submit" value="submit" class="btn btn-default" style="color: #FFF !important;">Приєднатися </button>
 
 				</form>
 			</div>

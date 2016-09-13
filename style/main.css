@@ -22,6 +22,14 @@ body {
     padding-top: 0px;
 }
 
+#langs-dropdown
+{
+	right: 75px;
+	background-color: #DFDFDF;
+	top: 64px;
+}
+
+
 .top-20-reverse {
     margin-top: -20px;
 }
@@ -59,7 +67,7 @@ body {
 }
 
 
-#main-nav .nav>li>a
+#main-nav li>a
 {
 	font-size: 23px;
 
@@ -81,7 +89,7 @@ body {
 	height: 337px;
 
 	position: absolute;
-	margin-top: 74px;
+	margin-top: 76px;
 	background-color: #DFDFDF;
 }
 
@@ -94,18 +102,15 @@ body {
 	height: 412px;
 
 	position: absolute;
-	margin-top: 74px;
+	margin-top: 76px;
 	background-color: #DFDFDF;
 }
 
 
 
-.first-form form .btn
-{
-	width: 80%;
-	color: #FFF;
-	background-color: #009688;
-}
+
+
+
 #formLogin
 {
 
@@ -157,7 +162,7 @@ body {
 
 .first-form
 {
-	position: fixed;
+	position: absolute;
 	width: 101%;
 	height: 100%;
 	top: 0px;
@@ -215,6 +220,20 @@ body {
 	height: 10px;
 	width: 100%;
 }
+
+.first-form .pisdushka-2
+{
+	background: url(../img/land-form-element-2.png) no-repeat 49% center;
+
+	-o-background-size: contain;
+	-moz-background-size: contain;
+	-webkit-background-size: contain;
+	background-size: contain;
+
+	height: 10px;
+	width: 100%;
+}
+
 
 .first-form .header img
 {
@@ -962,3 +981,5 @@ body {
 /*
     End animation area
 */
+
+
