@@ -17,7 +17,7 @@
 }
 
 body {
-    background-color: #FAFAFA;
+    background-color: #F5F5F5;
     height: 100%;
     padding-top: 0px;
 }
@@ -982,4 +982,57 @@ body {
     End animation area
 */
 
+/* account */
 
+.animate-show {
+	width: 100%;
+}
+
+.animate-show.ng-hide-add, .animate-show.ng-hide-remove, .collapse-element, .account-card{
+  transition: all ease 0.25s;
+}
+
+.animate-show.ng-hide .collapse-element{
+	height: 0px;
+	opacity: 0;
+}
+
+.collapse-element {
+    height: 59px;
+    opacity: 1;
+    border-top: 1px solid rgba(0,0,0,0.12);
+	padding-left: 1px;
+}
+
+.collapse-bottom-border
+{
+	border-bottom: 1px solid rgba(0,0,0,0.12);
+}
+
+.no-borders
+{
+	border: 0px;
+}
+.account-card
+{
+    font-size: 16px;
+	color: rgba(0,0,0,0.7);
+    font-weight: bolder;
+    padding-top: 18px;
+}
+
+
+#acount-footer
+{
+	font-weight: lighter;
+	margin-top: 15px;
+	margin-left: -30px;
+	font-size: 24px;
+}
+
+.animate-show.ng-hide .account-card
+{
+	margin-bottom: 0px;
+	padding-top: 0px;
+}
+/* end acount */
