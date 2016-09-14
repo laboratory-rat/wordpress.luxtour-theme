@@ -132,10 +132,12 @@ if (!isset($luw))
 {
 	$luw = new luxtour_user_worker();
 }
+
+$lang = clear_input($_COOKIE['lang']);
 ?>
 
 <input type="hidden" id="api_key" value="<? print($luw->get_key()); ?>" />
-
+<input type="hidden" id="current_lang" value="<?echo $lang;?>" />
 
 
 

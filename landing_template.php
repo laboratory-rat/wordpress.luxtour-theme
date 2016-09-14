@@ -20,7 +20,7 @@ echo "land - 2";
 
 $self_url = htmlspecialchars($_SERVER["PHP_SELF"]);
 
-if ($_SERVER["REQUEST_METHOD"] == "POST" && !empty($_POST["fullname"]) && 			!empty($_POST["password"]) && !empty($_POST["password_confirm"]) && 			!empty($_POST["email"]) && !empty($_POST["submit"]))
+if ($_SERVER["REQUEST_METHOD"] == "POST" && !empty($_POST["fullname"]) && 	!empty($_POST["password"]) && !empty($_POST["password_confirm"]) && !empty($_POST["email"]) && !empty($_POST["submit"]))
 {
 	$fullname = clear_input($_POST["fullname"]);
 	$password = clear_input($_POST["password"]);
@@ -58,6 +58,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && !empty($_POST["fullname"]) && 			!em
 			);
 
 			$result = $luw->add_new_user($args);
+
 		}
 	}
 	else

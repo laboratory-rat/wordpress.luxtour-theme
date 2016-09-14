@@ -20,7 +20,7 @@ if(!session_id()) {
 
 if (!empty($_POST["login"]) && !empty($_POST["password"]) && !empty($_POST["confirm"]) && !empty($_POST["name"]) && !empty($_POST["second_name"]))
 {
-    $f_login = $_POST["login"];
+    $f_login = $_POST["login"]);
     $f_pass = $_POST["password"];
     $f_confirm = $_POST["confirm"];
     $f_name = $_POST["name"];

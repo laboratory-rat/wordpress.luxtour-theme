@@ -274,7 +274,9 @@ tour.controller('newsCtrl', function($scope, $rootScope, $http)
 
     $scope.update_news = function()
     {
-        $http.get('http://wp-test.in/wp-json/luxtour_api/v1/news/'+$scope.page_count + '/' + $scope.start_page).success(function(data, status, headers, config) {
+		$scope.lang = angular.element('#current_lang').val();
+
+        $http.get('http://wp-test.in/wp-json/luxtour_api/v1/news/'+$scope.page_count + '/' + $scope.start_page + '/' +$scope.lang).success(function(data, status, headers, config) {
             data.forEach(function(post)
             {
                 $scope.posts_data.push(post);
