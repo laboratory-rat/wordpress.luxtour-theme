@@ -13,10 +13,10 @@ $l->set_page("dash");
 ?>
 <div ng-app="tourApp">
 
-<div class="container-fluid panel" id="work-area" style="height: 96px; margin-top: 64px;" ng-controller="tabCtrl">
+<div class="container-fluid panel" id="work-area" style="height: 64px; margin-top: 64px;" ng-controller="tabCtrl">
 
     <ul class="nav nav-tabs" style="margin-bottom: 15px;" id="main-tabs-panel">
-        <li class=""><a href="#stat" data-toggle="tab"  >
+        <li class=""><a href="#history" data-toggle="tab"  >
             <span class="glyphicon glyphicon-blackboard" area-hidden="true"></span>
             <span class="hidden-xs hidden-sm"> <?$l->_l('nav-1');?></span>
         </a></li>
@@ -24,11 +24,11 @@ $l->set_page("dash");
             <span class="glyphicon glyphicon-briefcase" area-hidden="true"></span>
             <span class="hidden-xs hidden-sm"> <?$l->_l('nav-2');?></span>
         </a></li>
-        <li><a href="#more" data-toggle="tab">
+        <li><a href="#news" data-toggle="tab">
             <span class="glyphicon glyphicon-bookmark" area-hidden="true"></span>
             <span class="hidden-xs hidden-sm"> <?$l->_l('nav-3');?></span>
         </a></li>
-        <li ng-click="emitEvents()"><a href="#moreToo" data-toggle="tab" >
+        <li style="border: 0px;" ng-click="emitEvents()"><a href="#stats" data-toggle="tab" >
             <span class="glyphicon glyphicon-signal" area-hidden="true"></span>
             <span class="hidden-xs hidden-sm"> <?$l->_l('nav-4');?></span>
         </a></li>
@@ -37,7 +37,8 @@ $l->set_page("dash");
 </div>
 <div class="container">
     <div id="myTabContent" class="tab-content" ng-controller="statCtrl">
-    <div class="tab-pane fade" id="stat">
+
+    <div class="tab-pane fade" id="history">
 
         <center ><h1><?$l->_l('1-header');?></h1></center>
 
@@ -51,7 +52,7 @@ $l->set_page("dash");
                             <th><?$l->_l('1-t-3');?></th>
                             <th><?$l->_l('1-t-4');?></th>
                             <th><?$l->_l('1-t-5');?></th>
-                            <th>К-<?$l->_l('1-t-6');?></th>
+                            <th><?$l->_l('1-t-6');?></th>
                             <th><?$l->_l('1-t-7');?></th>
                             <th><?$l->_l('1-t-8');?></th>
                             <th><?$l->_l('1-t-9');?></th>
@@ -161,8 +162,8 @@ $l->set_page("dash");
                                 <div class="input-group form-group">
                                 <label class="control-label main-text text-weight-400 text-16" for="form_sex"><?$l->_l('2-l-ph-sex');?></label>
                                 <select class="form-control" id="form_sex" ng-model="cust.sex">
-                                    <option value="men">Men</option>
-                                    <option value="women">Women</option>
+                                    <option value="men"><?$l->_l('2-men');?></option>
+                                    <option value="women"><?$l->_l('2-women');?></option>
                                 </select>
                                 <span class="input-group-addon" ><i class="material-icons">keyboard_arrow_down</i></span>
                                 </div>
@@ -380,7 +381,7 @@ $l->set_page("dash");
                                       <td>{{set_days_count(date_from, date_until)}}</td>
                                     </tr>
                                     <tr>
-                                      <th scope="row"><?$l->l('2-r-ph-price');?></th>
+                                      <th scope="row"><?$l->_l('2-r-ph-price');?></th>
                                       <td>{{selected_apartments.price * customers_count * days_count / 7 | number : 2}}</td>
                                     </tr>
                                   </tbody>
@@ -403,7 +404,7 @@ $l->set_page("dash");
     </div><!-- end of order tab -->
 
 
-    <div class="tab-pane fade" id="more" ng-controller="newsCtrl">
+    <div class="tab-pane fade" id="news" ng-controller="newsCtrl">
             <center ><h1><?$l->_l('3-header');?></h1></center>
 
             <div class="container" style="margin-top: 25px;">
@@ -420,22 +421,21 @@ $l->set_page("dash");
                     </div>
                 </div>
                 <div class = "row">
-                    <div class="col-xs-12" style="height: 72px; background-color: #d920b1;" ng-click="load_more();">
-                        <center><h1>Load More</h1></center>
-                    </div>
+					<img src = "<?echo get_template_directory_uri();?>/img/news_element.png" alt="more_news"  style="width: 50px;" class="img-circle center-block" ng-click="load_more();"/>
                 </div>
             </div>
 
     </div>
-    <div class="tab-pane fade" id="moreToo" ng-controller="chartCtrl">
-            <center ><h1><?$l->_l('4-header');?>а</h1></center>
 
-            <div class="panel container padding-24" style="margin-top: 25px">
+    <div class="tab-pane fade" id="stats" ng-controller="chartCtrl">
+            <center style="font-size: 36px;"><?$l->_l('4-header');?></center>
+
+            <div class="container" style="margin-top: 15px">
                 <div class="row">
                     <div class="col-xs-12">
-                        <div class="togglebutton">
+                        <div class="togglebutton" style="text-align: right;">
                           <label>
-                            <input type="checkbox" ng-click="chart_id == 0 ? chart_id = agent_id : chart_id = 0; updateCharts()"> <?$l->_l('4-only-own');?>
+                            <span ng-class="{toggle_active: chart_id == 0}"><?$l->_l('4-general');?></span> <input style="margin-left: 20px;" type="checkbox" ng-click="chart_id == 0 ? chart_id = agent_id : chart_id = 0; updateCharts()"> <span ng-class="{toggle_active: chart_id != 0}"><?$l->_l('4-only-own');?></span>
                           </label>
 							<!--
                           <label for="date_select">Час</label>
@@ -450,32 +450,41 @@ $l->set_page("dash");
                     </div>
 
                 </div>
-                <div class="row">
-                    <div class="col-xs-12">
-                        <canvas id="orders_chart" class="chart chart-line" chart-data="orders_chart.data"
-                        chart-labels="orders_chart.labels" chart-series="orders_chart.series" chart-options="orders_chart.options">
+                <div class="row ">
+					<div class="col-xs-12 main-text text-24" style="margin-bottom: 15px;">
+						<?$l->_l('4-orders');?>
+					</div>
+                    <div class="col-xs-12 " style="height: 400px; margin-bottom: 30px;">
+                        <canvas id="orders_chart" class="chart chart-line panel" chart-data="orders_chart.data"
+                        chart-labels="orders_chart.labels" chart-series="orders_chart.series" chart-options="orders_chart.options"
+								style="height: 400px; width: 100%;">
 
                         </canvas>
                     </div>
-                    <div class="col-sm-12 col-md-6">
-                        <canvas id="sex_stats" class="chart chart-doughnut"
-                            chart-data="sex_chart.data" chart-labels="sex_chart.labels">
-                        </canvas>
-                    </div>
-                    <div class="col-sm-12 col-md-6">
-                        <canvas id="bar" class="chart chart-bar"
-                            chart-data="tour_chart.data" chart-labels="tour_chart.labels">
+
+                    <div class="col-sm-12 col-md-6 " >
+						<span class="text-24 main-text" style="margin-bottom: 15px; display: block;"><?$l->_l('4-tour');?></span>
+                        <canvas id="bar" class="chart chart-bar panel"
+                            chart-data="tour_chart.data" chart-labels="tour_chart.labels" style="max-height: 500px;">
                         </canvas>
                     </div>
 
                     <div class="col-sm-12 col-md-6">
-                        <canvas id="hotels_chart" class="chart chart-bar"
-                            chart-data="hotels_chart.data" chart-labels="hotels_chart.labels">
+						<span class="text-24 main-text" style="margin-bottom: 15px; display: block;"><?$l->_l('4-hotel');?></span>
+                        <canvas id="hotels_chart" class="chart chart-bar panel"
+                            chart-data="hotels_chart.data" chart-labels="hotels_chart.labels"  style="max-height: 500px;">
                         </canvas>
                     </div>
-                    <div class="col-sm-12 col-md-6">
-                        <canvas id="apartments_chart" class="chart chart-bar"
-                            chart-data="apartments_chart.data" chart-labels="apartments_chart.labels">
+					<div class="col-sm-12 col-md-4" style="">
+						<span class="text-24 main-text" style="margin-bottom: 15px; display: block;"><?$l->_l('4-sex');?></span>
+                        <canvas id="sex_stats" class="chart chart-doughnut panel"
+                            chart-data="sex_chart.data" chart-labels="sex_chart.labels"  style="max-height: 500px;">
+                        </canvas>
+                    </div>
+                    <div class="col-sm-12 col-md-8">
+						<span class="text-24 main-text" style="margin-bottom: 15px; display: block;"><?$l->_l('4-apart');?></span>
+                        <canvas id="apartments_chart" class="chart chart-bar panel"
+                            chart-data="apartments_chart.data" chart-labels="apartments_chart.labels"  style="max-height: 500px;">
                         </canvas>
                     </div>
                 </div>

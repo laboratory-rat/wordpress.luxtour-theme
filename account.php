@@ -75,7 +75,11 @@ $data = $luw->get_user_data();
 
 
 
-get_header(); ?>
+get_header();
+
+$l->set_page("account");
+
+?>
 
 <? if ($errors != ""): ?>
 
@@ -122,73 +126,73 @@ get_header(); ?>
 
 <div class="row account-animation">
 	<div class="col-xs-12 collapse-element account-card">
-		<div class="col-xs-3" style="padding-left: 1px;">Password</div>
+		<div class="col-xs-3" style="padding-left: 1px;"><?$l->_l('pass');?></div>
 		<div class="col-xs-7"></div>
-		<div class="col-xs-2"> <a ng-click="passFormActive = !passFormActive" href="#">Change</a> </div>
+		<div class="col-xs-2"> <a ng-click="passFormActive = !passFormActive" href="#"><?$l->_l('btn-change');?></a> </div>
 	</div>
 	<div class="col-xs-12 account-collapse" ng-show="passFormActive" style="padding-left: 0px;">
 		<form class='account-form' action="<?echo $self_url; ?>" method="POST">
 			<div class="form-group">
-				<label class="col-xs-3" style="padding-left: 1px;" for="old-pass">Old</label>
+				<label class="col-xs-3" style="padding-left: 1px;" for="old-pass"><?$l->_l('pass-old');?></label>
 				<div class="col-xs-7">
 					<input class="form-control" name="old-pass" id="old-pass" type="password" required /> </div>
 			</div>
 			<div class="form-group">
-				<label class="col-xs-3" for="new-pass" style="margin-top:15px; padding-left: 1px;" >New</label>
+				<label class="col-xs-3" for="new-pass" style="margin-top:15px; padding-left: 1px;" ><?$l->_l('pass-new');?></label>
 				<div class="col-xs-7">
 					<input class="form-control" name="new-pass" id="new-pass" type="password" style="margin-top:15px;" required /> </div>
 			</div>
 			<div class="form-group">
-				<label class="col-xs-3" for="repeat" style="margin-top:15px; padding-left: 1px;">Repeat</label>
+				<label class="col-xs-3" for="repeat" style="margin-top:15px; padding-left: 1px;"><?$l->_l('pass-repeat');?></label>
 				<div class="col-xs-7">
 					<input class="form-control" name="repeat" id="repeat" type="password" style="margin-top:15px;" required /> </div>
 			</div>
 
-		  <button type="submit" name="submit" value="change-password" class="btn btn-primary col-xs-3 col-xs-push-3" style="margin-left: 15px; margin-top: 15px; background-color: #009688 !important; color: #FFF !important; width: 120px; height: 30px; font-size: 12px;">Change</button>
+		  <button type="submit" name="submit" value="change-password" class="btn btn-primary col-xs-3 col-xs-push-3" style="margin-left: 15px; margin-top: 15px; background-color: #009688 !important; color: #FFF !important; width: 120px; height: 30px; font-size: 12px;"><?$l->_l('btn-submit');?></button>
 		</form>
 	</div>
 
 	<div class="col-xs-12 collapse-element account-card">
-		<div class="col-xs-3" style="padding-left: 1px;">Email</div>
+		<div class="col-xs-3" style="padding-left: 1px;"><?$l->_l('email');?></div>
 		<div class="col-xs-7"><? echo $data['email'];?></div>
-		<div class="col-xs-2"> <a ng-click="emailFormActive = !emailFormActive" href="#">Change</a> </div>
+		<div class="col-xs-2"> <a ng-click="emailFormActive = !emailFormActive" href="#"><?$l->_l('btn-change');?></a> </div>
 	</div>
 	<div class="col-xs-12 account-collapse" ng-show="emailFormActive" style="padding-left: 0px;">
 		<form class='account-form' name="change-email-form"  action="<?echo $self_url; ?>" method="POST">
 			<div class="form-group">
-				<label class="col-xs-3" for="new-email" style="margin-top:15px; padding-left: 1px;" >New email</label>
+				<label class="col-xs-3" for="new-email" style="margin-top:15px; padding-left: 1px;" ><?$l->_l('email-new');?></label>
 				<div class="col-xs-7">
 					<input class="form-control" name="new-email" id="new-email" type="email" style="margin-top:15px;" required /> </div>
 			</div>
 			<div class="form-group">
-				<label class="col-xs-3" for="password" style="margin-top:15px; padding-left: 1px;">Password</label>
+				<label class="col-xs-3" for="password" style="margin-top:15px; padding-left: 1px;"><?$l->_l('pass');?></label>
 				<div class="col-xs-7">
 					<input class="form-control" name="password" id="password" type="password" style="margin-top:15px;" required /> </div>
 			</div>
 
-		  <button type="submit" value="change-email" name="submit"  class="btn btn-primary col-xs-3 col-xs-push-3" style="margin-left: 15px; margin-top: 15px; background-color: #009688 !important; color: #FFF !important; width: 120px; height: 30px; font-size: 12px;">Submit</button>
+		  <button type="submit" value="change-email" name="submit"  class="btn btn-primary col-xs-3 col-xs-push-3" style="margin-left: 15px; margin-top: 15px; background-color: #009688 !important; color: #FFF !important; width: 120px; height: 30px; font-size: 12px;"><?$l->_l('btn-submit');?></button>
 		</form>
 	</div>
 
 	<div class="col-xs-12 collapse-element account-card">
-		<div class="col-xs-3" style="padding-left: 1px;">Tel</div>
+		<div class="col-xs-3" style="padding-left: 1px;"><?$l->_l('tel');?></div>
 		<div class="col-xs-7"><? echo $data['tel']?></div>
-		<div class="col-xs-2"> <a ng-click="telFormActive = !telFormActive" href="#">Change</a> </div>
+		<div class="col-xs-2"> <a ng-click="telFormActive = !telFormActive" href="#"><?$l->_l('btn-change');?></a> </div>
 	</div>
 	<div class="col-xs-12 account-collapse " ng-show="telFormActive" style="padding-left: 0px;">
 		<form class='account-form'  action="<?echo $self_url; ?>" method="POST">
 			<div class="form-group">
-				<label class="col-xs-3" for="new-tel" style="margin-top:15px; padding-left: 1px;" >New</label>
+				<label class="col-xs-3" for="new-tel" style="margin-top:15px; padding-left: 1px;" ><?$l->_l('tel-new');?></label>
 				<div class="col-xs-7">
 					<input class="form-control" name="new-tel" id="new-tel" type="tel" style="margin-top:15px;" required /> </div>
 			</div>
 			<div class="form-group">
-				<label class="col-xs-3" for="password" style="margin-top:15px; padding-left: 1px;">Password</label>
+				<label class="col-xs-3" for="password" style="margin-top:15px; padding-left: 1px;"><?$l->_l('pass');?></label>
 				<div class="col-xs-7">
 					<input class="form-control" name="password" id="password" type="password" style="margin-top:15px;" required /> </div>
 			</div>
 
-		  <button type="submit" value="change-tel" name="submit" class="btn btn-primary col-xs-3 col-xs-push-3" style="margin-left: 15px; margin-top: 15px; background-color: #009688 !important; color: #FFF !important; width: 120px; height: 30px; font-size: 12px;">Submit</button>
+		  <button type="submit" value="change-tel" name="submit" class="btn btn-primary col-xs-3 col-xs-push-3" style="margin-left: 15px; margin-top: 15px; background-color: #009688 !important; color: #FFF !important; width: 120px; height: 30px; font-size: 12px;"><?$l->_l('btn-submit');?></button>
 		</form>
 	</div>
 	<div class="col-xs-12 collapse-element account-card account-bottom-border">
@@ -200,7 +204,7 @@ get_header(); ?>
 </div>
 
 			<div class="row" id="acount-footer">
-				<div class="col-xs-12 ">КОНТАКТИ</div>
+				<div class="col-xs-12 "><?$l->_l('contacts');?></div>
 				<div class="col-xs-12">Контакти</div>
 				<div class="col-xs-12 ">Контакти</div>
 
@@ -212,7 +216,7 @@ get_header(); ?>
 		</div>
 
 		<div class="col-xs-3 col-xs-push-1" style="margin-left: 15px; text-align: center; margin-top: -10px;">
-			<span style="font-size: 16px; font-weight: bolder;">Форма договору з клієнтом</span><br />
+			<span style="font-size: 16px; font-weight: bolder;"><?$l->_l('form');?></span><br />
 			<a href="#" alt="doc" style="padding-top: 15px; display: block;">
 				<img src="<?echo get_template_directory_uri();?>/img/doc.png" />
 			</a>

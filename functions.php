@@ -1,8 +1,14 @@
 <?
 
 register_nav_menus(array(
-'top_basic' => 'Main top menu',
-'top_anonymus' => "Top menu for anonymus user",
+	'top_basic_uk' => 'Main top menu uk',
+	'top_anonymus_uk' => "Top menu for anonymus user uk",
+
+	'top_basic_en' => 'Main top menu en',
+	'top_anonymus_en' =>'Top menu for anonymus user en',
+
+	'top_basic_ru' => 'Main top menu ru',
+	'top_anonymus_ru' => 'Top menu for anonymus user ru',
 ));
 
 

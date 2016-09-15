@@ -1,5 +1,10 @@
 var tour = angular.module("tourApp", ["chart.js", "mgcrea.ngStrap", "ngAnimate", "ngMaterial"]);
 
+tour.run(function($rootScope)
+{
+	$rootScope.baseUrl = "http://wp-test.in";
+})
+
 tour.config(function($datepickerProvider) {
     angular.extend($datepickerProvider.defaults, {
         dateFormat: 'dd/MM/yyyy',
@@ -9,6 +14,8 @@ tour.config(function($datepickerProvider) {
         placement: 'auto'
     });
 })
+
+
 
 tour.filter('dateToISO', function() {
   return function(input) {
@@ -28,7 +35,7 @@ tour.controller("tabCtrl", function($scope, $rootScope)
     }
 });
 
-tour.controller("tourController", function($scope, $http, $mdToast)
+tour.controller("tourController", function($scope, $rootScope, $http, $mdToast)
 {
     $scope.name = "Oleg Timofeev";
 
@@ -53,7 +60,7 @@ tour.controller("tourController", function($scope, $http, $mdToast)
     ]
     // Get tours from db
 
-    $http.get('http://wp-test.in/wp-json/luxtour_api/v1/tours').success(function(data, status, headers, config) {
+    $http.get($rootScope.baseUrl+'/wp-json/luxtour_api/v1/tours').success(function(data, status, headers, config) {
         $scope.tours = data;
         console.log("success");
     }).error(function(data, status, headers, config) {
@@ -168,7 +175,7 @@ tour.controller("tourController", function($scope, $http, $mdToast)
         {
             if (item.fullname == "" || item.sex == "" || (!item.isChild && (item.passport == "" || item.inn == "" || (item.email == "" && item.tel == "") ) ) )
             {
-                e.etc.push("Відвідувач № " + (i + 1) + " заповнений неправильно.");
+                e.etc.push("Customer № " + (i + 1) + " error.");
             }
 
         });
@@ -202,10 +209,14 @@ tour.controller("tourController", function($scope, $http, $mdToast)
 
         var $data_json = angular.toJson($data);
 
-        $http.put('http://wp-test.in/wp-json/luxtour_api/v1/add_order/', $data_json)
+		console.log('tour -- ', $rootScope.baseUrl+'/wp-json/luxtour_api/v1/add_order/');
+
+        $http.put($rootScope.baseUrl+'/wp-json/luxtour_api/v1/add_order/', $data_json)
         .then(function(response)
         {
             $scope.ClearForm();
+
+			$rootScope.$emit('call_dataUpdate', '');
 
             $mdToast.show(
               $mdToast.simple()
@@ -226,7 +237,7 @@ tour.controller("tourController", function($scope, $http, $mdToast)
 
     $scope.GetTMPGuest = function()
     {
-        return "Гість";
+        return "New";
     }
 
     $scope.IsTour = function()
@@ -276,7 +287,9 @@ tour.controller('newsCtrl', function($scope, $rootScope, $http)
     {
 		$scope.lang = angular.element('#current_lang').val();
 
-        $http.get('http://wp-test.in/wp-json/luxtour_api/v1/news/'+$scope.page_count + '/' + $scope.start_page + '/' +$scope.lang).success(function(data, status, headers, config) {
+		console.log($rootScope.baseUrl+'/wp-json/luxtour_api/v1/news/'+$scope.page_count + '/' + $scope.start_page + '/' +$scope.lang);
+
+        $http.get($rootScope.baseUrl+'/wp-json/luxtour_api/v1/news/'+$scope.page_count + '/' + $scope.start_page + '/' +$scope.lang).success(function(data, status, headers, config) {
             data.forEach(function(post)
             {
                 $scope.posts_data.push(post);
@@ -294,7 +307,7 @@ tour.controller('newsCtrl', function($scope, $rootScope, $http)
 
 });
 
-tour.controller("statCtrl", function($scope, $http)
+tour.controller("statCtrl", function($scope, $rootScope, $http)
 {
     $scope.orders = null;
     $scope.api_key = -1;
@@ -302,13 +315,17 @@ tour.controller("statCtrl", function($scope, $http)
 
     angular.element(document).ready(function () {
         $scope.updateData();
+
+	   $rootScope.$on('call_dataUpdate', function(event, args) {
+			$scope.updateData();
+        });
     });
 
     $scope.updateData = function()
     {
         $scope.api_key =angular.element('#api_key').val();
 
-        $http.get('http://wp-test.in/wp-json/luxtour_api/v1/get_stats/' + $scope.api_key).success(function(data, status, headers, config) {
+        $http.get($rootScope.baseUrl+'/wp-json/luxtour_api/v1/get_stats/' + $scope.api_key).success(function(data, status, headers, config) {
             $scope.orders = data;
             console.log("get stats");
         }).error(function(data, status, headers, config) {
@@ -323,20 +340,19 @@ tour.config(['ChartJsProvider', function(ChartJsProvider) {
     // Configure all charts
     ChartJsProvider.setOptions({
         chartColors: ['#803690', '#00ADF9', '#DCDCDC', '#46BFBD', '#FDB45C', '#949FB1', '#4D5360'],
-        responsive: true
-    });
-    // Configure all line charts
-    ChartJsProvider.setOptions('line', {
-        showLines: true
+        responsive: true,
+		maintainAspectRatio: false
     });
 }]);
 
-tour.controller("chartCtrl", function($scope, $rootScope, $http, $interval)
+tour.controller("chartCtrl", function($scope, $rootScope, $http, $interval, $location)
 {
     $scope.chart_id = 0;
     $scope.max_count = 0;
 
     $scope.date = 0;
+
+
 
     $scope.orders_chart = {
         labels : [],
@@ -358,9 +374,8 @@ tour.controller("chartCtrl", function($scope, $rootScope, $http, $interval)
     $scope.updateCharts = function()
     {
         //orders
-		console.log('http://wp-test.in/wp-json/luxtour_api/v1/statistics/orders/'+$scope.date+'/' + $scope.chart_id);
 
-        $http.get('http://wp-test.in/wp-json/luxtour_api/v1/statistics/orders/'+$scope.date+'/' + $scope.chart_id).success(function(data, status, headers, config) {
+        $http.get($rootScope.baseUrl+'/wp-json/luxtour_api/v1/statistics/orders/'+$scope.date+'/' + $scope.chart_id).success(function(data, status, headers, config) {
 
             // Load orders chart
 
@@ -378,7 +393,7 @@ tour.controller("chartCtrl", function($scope, $rootScope, $http, $interval)
 
 
 
-        $http.get('http://wp-test.in/wp-json/luxtour_api/v1/statistics/sex/'+$scope.date+'/' + $scope.chart_id).success(function(data, status, headers, config){
+        $http.get($rootScope.baseUrl+'/wp-json/luxtour_api/v1/statistics/sex/'+$scope.date+'/' + $scope.chart_id).success(function(data, status, headers, config){
 
             $scope.sex_chart.data = new Array();
 
@@ -390,7 +405,7 @@ tour.controller("chartCtrl", function($scope, $rootScope, $http, $interval)
 
 
 
-        $http.get('http://wp-test.in/wp-json/luxtour_api/v1/statistics/tours/0/' + $scope.chart_id).success(function(data, status, headers, config){
+        $http.get($rootScope.baseUrl+'/wp-json/luxtour_api/v1/statistics/tours/0/' + $scope.chart_id).success(function(data, status, headers, config){
             $scope.tour_chart.data = new Array();
             $scope.tour_chart.labels = new Array();
 
@@ -404,7 +419,7 @@ tour.controller("chartCtrl", function($scope, $rootScope, $http, $interval)
         });
 
 
-        $http.get('http://wp-test.in/wp-json/luxtour_api/v1/statistics/hotels/0/' + $scope.chart_id).success(function(data, status, headers, config){
+        $http.get($rootScope.baseUrl+'/wp-json/luxtour_api/v1/statistics/hotels/0/' + $scope.chart_id).success(function(data, status, headers, config){
             $scope.hotels_chart.data = new Array();
             $scope.hotels_chart.labels = new Array();
 
@@ -421,7 +436,7 @@ tour.controller("chartCtrl", function($scope, $rootScope, $http, $interval)
         // apartments
 
 
-        $http.get('http://wp-test.in/wp-json/luxtour_api/v1/statistics/apartments/0/' + $scope.chart_id).success(function(data, status, headers, config){
+        $http.get($rootScope.baseUrl+'/wp-json/luxtour_api/v1/statistics/apartments/0/' + $scope.chart_id).success(function(data, status, headers, config){
             $scope.apartments_chart.data = new Array();
             $scope.apartments_chart.labels = new Array();
 

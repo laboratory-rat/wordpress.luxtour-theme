@@ -156,6 +156,7 @@ body {
     border: 4px solid #009688;
     border-radius: 50px;
     font-size: 20px;
+	min-width: 300px;
 }
 
 
@@ -417,6 +418,11 @@ body {
 
 }
 
+.toggle_active
+{
+	color: rgba(0,0,0,0.87);
+}
+
 .text-42
 {
     font-size: 42px;
@@ -430,6 +436,11 @@ body {
 .text-20
 {
     font-size: 20px;
+}
+
+.text-24
+{
+	font-size: 24px;
 }
 
 .text-18
@@ -591,28 +602,49 @@ body {
 
 .land-checkbox
 {
-    color: #feba00 !important;
-    border-color: #feba00;
+    color: #009688 !important;
+    border-color: #009688;
 }
 
 .checkbox .checkbox-material .check, label.checkbox-inline .checkbox-material .check
 {
-    border-color:#feba00;
+    border-color:#009688;
 }
 
 .checkbox input[type=checkbox]:checked + .checkbox-material .check, label.checkbox-inline input[type=checkbox]:checked + .checkbox-material .check
 {
-    border-color: #feba00;
-    color: #feba00;
+    border-color: #009688;
+    color: #009688;
 }
 
 .checkbox input[type=checkbox]:checked + .checkbox-material .check:before, label.checkbox-inline input[type=checkbox]:checked + .checkbox-material .check:before
 {
-    color: #feba00;
+    color: #009688;
 }
 
 
 @media(max-width:768px) {
+	.first-section-btn
+	{
+		height: 40px;
+		font-size: 15px;
+	}
+
+	.second-page-head
+	{
+		font-size: 18px;
+	}
+
+	.page-head
+	{
+		font-size: 32px;
+
+	}
+	#main-nav li>a
+	{
+		font-size: 20px;
+	}
+
     #login-dp {
         background-color: inherit;
         color: #fff;
@@ -689,23 +721,29 @@ body {
 }
 
 #main-tabs-panel {
-    height: 96px;
+    height: 64px;
     background-color: #FAFAFA;
 }
 
 #main-tabs-panel li {
-    height: 96px;
+    height: 64px;
     width: 290px;
 }
 
 #main-tabs-panel li a {
-    padding-top: 40px;
-    height: 96px;
+    padding-top: 25px;
+    height: 64px;
     width: 100%;
-    color: #000000 !important;
+    color: #000 !important;
     opacity: 0.54;
     text-align: center;
 }
+
+#main-tabs-panel .active a  {
+    color: #FFF !important;
+	opacity: 0.87;
+}
+
 
 /* main tabs panel */
 
@@ -721,8 +759,14 @@ body {
     border: 1px solid #ccc;
 }
 
+#person-tabs-panel .active a
+{
+	color: #FFF !important;
+	opacity: 0.87;
+}
+
 #person-tabs-panel li a {
-    color: #000000 !important;
+    color: #000 !important;
     opacity: 0.54;
     text-align: center;
 }
@@ -802,12 +846,12 @@ body {
 
 #person-tabs-panel>li[class~="active"]
 {
-    background: orange;
+    background: #009688;
 }
 
 #main-tabs-panel>li[class~="active"]
 {
-    background: orange;
+    background: #009688;
 }
 
 

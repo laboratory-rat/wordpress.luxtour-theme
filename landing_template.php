@@ -92,19 +92,19 @@ if (isset($result) && $result != "")
         </span>
 						<div class="row second-page-head">
 							<div class="row" style="margin-top: 42px;">
-								<div class="col-md-2 col-lg-1 col-lg-push-1 hide-sm hide-xs"> <img src="http://wp-test.in/wp-content/themes/luxtour-agents/img/land-checkbox.png" class="img-responsive center-block" /> </div>
+								<div class="col-md-2 col-lg-1 col-lg-push-1 hide-sm hide-xs"> <img src="<? echo get_template_directory_uri(); ?>/img/land-checkbox.png" class="img-responsive center-block" /> </div>
 								<div class="col-xs-12 col-sm-12 col-md-10 col-lg-10 col-lg-push-1" style="min-height: 40px; margin-top: 5px;">
 									<? print($l->_l('1-list-1'));?>
 								</div>
 							</div>
 							<div class="row" style="margin-top: 21px;">
-								<div class="col-md-2 col-lg-1 col-lg-push-1 hide-sm hide-xs"> <img src="http://wp-test.in/wp-content/themes/luxtour-agents/img/land-checkbox.png" class="img-responsive center-block" /> </div>
+								<div class="col-md-2 col-lg-1 col-lg-push-1 hide-sm hide-xs"> <img src="<? echo get_template_directory_uri(); ?>/img/land-checkbox.png" class="img-responsive center-block" /> </div>
 								<div class="col-xs-12 col-sm-12 col-md-5 col-lg-6 col-lg-push-1" style="min-height: 40px; margin-top: 5px;">
 									<? print($l->_l('1-list-2'));?>
 								</div>
 							</div>
 							<div class="row" style="margin-top: 21px;">
-								<div class="col-md-2 col-lg-1 col-lg-push-1 hide-sm hide-xs"> <img src="http://wp-test.in/wp-content/themes/luxtour-agents/img/land-checkbox.png" class="img-responsive center-block" /> </div>
+								<div class="col-md-2 col-lg-1 col-lg-push-1 hide-sm hide-xs"> <img src="<? echo get_template_directory_uri(); ?>/img/land-checkbox.png" class="img-responsive center-block" /> </div>
 								<div class="col-xs-12 col-sm-12 col-md-5 col-lg-6 col-lg-push-1" style="min-height: 40px; margin-top: 5px;">
 									<? print($l->_l('1-list-3'));?>
 								</div>
@@ -134,8 +134,8 @@ if (isset($result) && $result != "")
 					<div class="panel">
 						<div class="header" >
 						<span class="white-text" ng-click="formActive = !formActive" style="font-size: 22px; cursor: pointer;">x</span>
-							<img src="http://wp-test.in/wp-content/themes/luxtour-agents/img/land-form-header.png" class="img-responsive center-block" />
-							<div class="white-text" style="font-weight: 500; text-align: center;">РЕГІСТРАЦІЯ</div>
+							<img src="<? echo get_template_directory_uri(); ?>/img/land-form-header.png" class="img-responsive center-block" />
+							<div class="white-text" style="font-weight: 500; text-align: center;"><?$l->_l('reg-header');?></div>
 						</div>
 
 						<div class="pisdushka"></div>
@@ -158,11 +158,11 @@ if (isset($result) && $result != "")
 							</div>
 						  <div class="checkbox clear">
 							  <label class="" style="color: rgba(0,0,0,0.87) !important;">
-									<input type="checkbox" required> Agree with tems
+									<input type="checkbox" required> <?$l->_l('reg-terms');?>
 						  		</label>
 						  </div>
 
-							<button name="submit" value="registration" type="submit" class="btn btn-default" style="color: #FFF !important;">Приєднатися </button>
+							<button name="submit" value="registration" type="submit" class="btn btn-default" style="color: #FFF !important;"><?$l->_l('reg-btn');?> </button>
 
 						</form>
 					</div>
@@ -183,9 +183,9 @@ if (isset($result) && $result != "")
                 color: #FEBA00;
                 font-size: 41px;
                 font-weight: 400;">
-                <img src="http://wp-test.in/wp-content/themes/luxtour-agents/img/land-line-yello.png" />
+                <img src="<? echo get_template_directory_uri(); ?>/img/land-line-yello.png" />
                 <? print($l->_l('2-header'));?>
-                <img src="http://wp-test.in/wp-content/themes/luxtour-agents/img/land-line-yello.png" /></span> </center>
+                <img src="<? echo get_template_directory_uri(); ?>/img/land-line-yello.png" /></span> </center>
 					<center style="    width: 75%;
     margin: 0 auto;"> <span style="
                 display: block;
@@ -196,13 +196,13 @@ if (isset($result) && $result != "")
 			</span> </center>
 				</div>
 				<center>
-					<div style="margin-top: 3%;"><img src="http://wp-test.in/wp-content/themes/luxtour-agents/img/land-line-white.png" class="img-responsive" /></div>
+					<div style="margin-top: 3%;"><img src="<? echo get_template_directory_uri(); ?>/img/land-line-white.png" class="img-responsive" /></div>
 				</center>
 				<div style="width:80%; margin:0 auto; margin-top: 5%">
 					<div class="row text-18">
 						<div class="col-xs-3 white-text">
 							<center>
-								<div><img src="http://wp-test.in/wp-content/themes/luxtour-agents/img/land-ico-1.png" class="img-responsive" style="    max-width: 119px; max-height: 119px;" /></div>
+								<div><img src="<? echo get_template_directory_uri(); ?>/img/land-ico-1.png" class="img-responsive" style="    max-width: 119px; max-height: 119px;" /></div>
 							</center>
 							<div class="text-center" style="margin-top: 16px;">
 								<? print($l->_l('2-list-1'));?>
@@ -210,7 +210,7 @@ if (isset($result) && $result != "")
 						</div>
 						<div class="col-xs-3 white-text">
 							<center>
-								<div><img src="http://wp-test.in/wp-content/themes/luxtour-agents/img/land-ico-2.png" class="img-responsive" style="    max-width: 119px; max-height: 119px;" /></div>
+								<div><img src="<? echo get_template_directory_uri(); ?>/img/land-ico-2.png" class="img-responsive" style="    max-width: 119px; max-height: 119px;" /></div>
 							</center>
 							<div class="text-center" style="margin-top: 16px;">
 								<? print($l->_l('2-list-2'));?>
@@ -218,7 +218,7 @@ if (isset($result) && $result != "")
 						</div>
 						<div class="col-xs-3 white-text">
 							<center>
-								<div><img src="http://wp-test.in/wp-content/themes/luxtour-agents/img/land-ico-3.png" class="img-responsive" style="    max-width: 119px; max-height: 119px;" /></div>
+								<div><img src="<? echo get_template_directory_uri(); ?>/img/land-ico-3.png" class="img-responsive" style="    max-width: 119px; max-height: 119px;" /></div>
 							</center>
 							<div class="text-center" style="margin-top: 16px;">
 								<? print($l->_l('2-list-3'));?>
@@ -226,7 +226,7 @@ if (isset($result) && $result != "")
 						</div>
 						<div class="col-xs-3 white-text">
 							<center>
-								<div><img src="http://wp-test.in/wp-content/themes/luxtour-agents/img/land-ico-4.png" class="img-responsive" style="    max-width: 119px; max-height: 119px;" /></div>
+								<div><img src="<? echo get_template_directory_uri(); ?>/img/land-ico-4.png" class="img-responsive" style="    max-width: 119px; max-height: 119px;" /></div>
 							</center>
 							<div class="text-center" style="margin-top: 16px;">
 								<? print($l->_l('2-list-4'));?>
@@ -247,23 +247,23 @@ if (isset($result) && $result != "")
 						</div>
 						<div style="width: 55%; min-width: 700px; margin-top: 56px; margin-left: 73px; height: 100%;" class="text-17">
 							<div class="row" style="margin-top: 10px;  min-height: 70px;">
-								<div class="col-xs-2" style="min-width: 72px; min-height: 72px; height: 100%;"> <img src="http://wp-test.in/wp-content/themes/luxtour-agents/img/land-3-1.png" class="img-responsive" /> </div>
+								<div class="col-xs-2" style="min-width: 72px; min-height: 72px; height: 100%;"> <img src="<? echo get_template_directory_uri(); ?>/img/land-3-1.png" class="img-responsive" /> </div>
 								<div class="col-xs-10" style="height: 100%;"> <span style="vertical-alin:middle;"><? print($l->_l('3-list-1'));?></span> </div>
 							</div>
 							<div class="row" style="margin-top: 10px;  min-height: 70px;">
-								<div class="col-xs-2" style="min-width: 72px; min-height: 72px; height: 100%;"> <img src="http://wp-test.in/wp-content/themes/luxtour-agents/img/land-3-3.png" class="img-responsive" /> </div>
+								<div class="col-xs-2" style="min-width: 72px; min-height: 72px; height: 100%;"> <img src="<? echo get_template_directory_uri(); ?>/img/land-3-3.png" class="img-responsive" /> </div>
 								<div class="col-xs-10">
 									<? print($l->_l('3-list-2'));?>
 								</div>
 							</div>
 							<div class="row" style="margin-top: 10px; min-height: 70px;">
-								<div class="col-xs-2" style="min-width: 72px; min-height: 72px; height: 100%;"> <img src="http://wp-test.in/wp-content/themes/luxtour-agents/img/land-3-2.png" class="img-responsive" /> </div>
+								<div class="col-xs-2" style="min-width: 72px; min-height: 72px; height: 100%;"> <img src="<? echo get_template_directory_uri(); ?>/img/land-3-2.png" class="img-responsive" /> </div>
 								<div class="col-xs-10">
 									<? print($l->_l('3-list-3'));?>
 								</div>
 							</div>
 							<div class="row" style="margin-top: 10px;  min-height: 70px;">
-								<div class="col-xs-2" style="min-width: 72px; min-height: 72px; height: 100%;"> <img src="http://wp-test.in/wp-content/themes/luxtour-agents/img/land-3-4.png" class="img-responsive" /> </div>
+								<div class="col-xs-2" style="min-width: 72px; min-height: 72px; height: 100%;"> <img src="<? echo get_template_directory_uri(); ?>/img/land-3-4.png" class="img-responsive" /> </div>
 								<div class="col-xs-10">
 									<? print($l->_l('3-list-4'));?>
 								</div>
@@ -272,7 +272,7 @@ if (isset($result) && $result != "")
 
 						<!-- write form -->
 
-						<div class="col-xs-8 col-xs-push-4 col-md-12 col-sm-push-4 col-md-push-3 col-lg-push-0" style="position: absolute; bottom: 50px;"> <a href="#" class="btn btn-raised first-section-btn center-block" style="width: 25%; height: 55px; color: #0277bd !important; background-color: #FFF !important; border-color: #0277bd !important; border-radius: 0px;" ng-click="formActiveSecond = !formActiveSecond">Написати нам </a> </div>
+						<div class="col-xs-8 col-xs-push-4 col-md-12 col-sm-push-4 col-md-push-3 col-lg-push-0" style="position: absolute; bottom: 50px;"> <a href="#" class="btn btn-raised first-section-btn center-block" style="width: 25%; height: 55px; color: #0277bd !important; background-color: #FFF !important; border-color: #0277bd !important; border-radius: 0px;" ng-click="formActiveSecond = !formActiveSecond"><?$l->_l('3-btn');?> </a> </div>
 
 						<!-- form -->
 
@@ -282,7 +282,7 @@ if (isset($result) && $result != "")
 							<div class="panel">
 								<div class="header" style="background-color:#0277bd" >
 								<span class="white-text" ng-click="formActiveSecond = !formActiveSecond" style="font-size: 22px; cursor: pointer;">x</span>
-									<div class="white-text" style="font-weight: 500; text-align: center;">Написати нам</div>
+									<div class="white-text" style="font-weight: 500; text-align: center;"><?$l->_l('m-3-header');?></div>
 								</div>
 
 								<div class="pisdushka-2"></div>
@@ -300,7 +300,7 @@ if (isset($result) && $result != "")
 										<textarea type="text" class="form-control" id="message-text" placeholder="" ng-model="letter.message" style="height:100px; padding-left: 10px;" required></textarea>
 									</div>
 
-									<button type="submit" class="btn btn-default" style="color: #FFF !important; background-color: #0277bd;" ng-click="writeUS()">Відправити </button>
+									<button type="submit" class="btn btn-default" style="color: #FFF !important; background-color: #0277bd;" ng-click="writeUS()"><?$l->_l('m-3-btn');?> </button>
 								</form>
 							</div>
 						</div>
@@ -318,13 +318,13 @@ if (isset($result) && $result != "")
 							</div>
 							<div class="center-block col-xs-12 col-sm-8 col-md-6 col-lg-6" style="width: 100%; margin-top: 3%">
 								<div style="width: 900px; margin: 0 auto;">
-									<div class="block-center"> <img src="http://wp-test.in/wp-content/themes/luxtour-agents/img/ico-4-1.png" class="center-block img-responsive" /> <span style="display:block; padding-top: 20px; font-size: 18px; font-weight: bolder;"><? print($l->_l('4-list-1'));?></span> </div>
-									<div class="block-center small-block-center hide-xs hide-sm"> <img src="http://wp-test.in/wp-content/themes/luxtour-agents/img/ico-4-s.png" class="center-block img-responsive " /> </div>
-									<div class="block-center"> <img src="http://wp-test.in/wp-content/themes/luxtour-agents/img/ico-4-2.png" class="center-block img-responsive" /> <span style="display:block; padding-top: 20px; font-size: 18px; font-weight: bolder;"><? print($l->_l('4-list-2'));?></span> </div>
-									<div class="block-center small-block-center hide-xs hide-sm"> <img src="http://wp-test.in/wp-content/themes/luxtour-agents/img/ico-4-s.png" class="center-block img-responsive" /> </div>
-									<div class="block-center"> <img src="http://wp-test.in/wp-content/themes/luxtour-agents/img/ico-4-3.png" class="center-block img-responsive" /> <span style="display:block; padding-top: 20px; font-size: 18px; font-weight: bolder;"><? print($l->_l('4-list-3'));?></span> </div>
-									<div class="block-center small-block-center hide-xs hide-sm"> <img src="http://wp-test.in/wp-content/themes/luxtour-agents/img/ico-4-s.png" class="center-block img-responsive" /> </div>
-									<div class="block-center"> <img src="http://wp-test.in/wp-content/themes/luxtour-agents/img/ico-4-4.png" class="center-block img-responsive" /> <span style="display:block; padding-top: 20px;  font-size: 18px; font-weight: bolder;"><? print($l->_l('4-list-4'));?></span> </div>
+									<div class="block-center"> <img src="<? echo get_template_directory_uri(); ?>/img/ico-4-1.png" class="center-block img-responsive" /> <span style="display:block; padding-top: 20px; font-size: 18px; font-weight: bolder;"><? print($l->_l('4-list-1'));?></span> </div>
+									<div class="block-center small-block-center hide-xs hide-sm"> <img src="<? echo get_template_directory_uri(); ?>/img/ico-4-s.png" class="center-block img-responsive " /> </div>
+									<div class="block-center"> <img src="<? echo get_template_directory_uri(); ?>/img/ico-4-2.png" class="center-block img-responsive" /> <span style="display:block; padding-top: 20px; font-size: 18px; font-weight: bolder;"><? print($l->_l('4-list-2'));?></span> </div>
+									<div class="block-center small-block-center hide-xs hide-sm"> <img src="<? echo get_template_directory_uri(); ?>/img/ico-4-s.png" class="center-block img-responsive" /> </div>
+									<div class="block-center"> <img src="<? echo get_template_directory_uri(); ?>/img/ico-4-3.png" class="center-block img-responsive" /> <span style="display:block; padding-top: 20px; font-size: 18px; font-weight: bolder;"><? print($l->_l('4-list-3'));?></span> </div>
+									<div class="block-center small-block-center hide-xs hide-sm"> <img src="<? echo get_template_directory_uri(); ?>/img/ico-4-s.png" class="center-block img-responsive" /> </div>
+									<div class="block-center"> <img src="<? echo get_template_directory_uri(); ?>/img/ico-4-4.png" class="center-block img-responsive" /> <span style="display:block; padding-top: 20px;  font-size: 18px; font-weight: bolder;"><? print($l->_l('4-list-4'));?></span> </div>
 								</div>
 							</div>
 						</div>
@@ -364,8 +364,8 @@ if (isset($result) && $result != "")
 					<div class="panel">
 						<div class="header" >
 						<span class="white-text" ng-click="formActiveThird = !formActiveThird" style="font-size: 22px; cursor: pointer;">x</span>
-							<img src="http://wp-test.in/wp-content/themes/luxtour-agents/img/land-form-header.png" class="img-responsive center-block" />
-							<div class="white-text" style="font-weight: 500; text-align: center;">РЕГІСТРАЦІЯ</div>
+							<img src="<? echo get_template_directory_uri(); ?>/img/land-form-header.png" class="img-responsive center-block" />
+							<div class="white-text" style="font-weight: 500; text-align: center;"><?$l->_l('reg-header');?></div>
 						</div>
 
 						<div class="pisdushka"></div>
@@ -388,11 +388,11 @@ if (isset($result) && $result != "")
 							</div>
 						  <div class="checkbox clear">
 							  <label class="" style="color: rgba(0,0,0,0.87) !important;">
-									<input type="checkbox" > Agree with tems
+									<input type="checkbox" ><?$l->_l('reg-terms');?>
 						  		</label>
 						  </div>
 
-							<button type="submit" name="submit" value="submit" class="btn btn-default" style="color: #FFF !important;">Приєднатися </button>
+							<button type="submit" name="submit" value="submit" class="btn btn-default" style="color: #FFF !important;"><?$l->_l('reg-btn');?> </button>
 
 						</form>
 					</div>
@@ -413,7 +413,7 @@ if (isset($result) && $result != "")
 							<div class="col-xs-12" id="map" style="width: 100%; height: 100%;"></div>
 						</div>
 						<div class="row white-text text-20" id="five-down">
-							<div class="col-xs-6 col-sm-5 col-md-4 col-lg-3" style="position: absolute; bottom: 50px; text-align: left;"> <span class="text-34">Контакти</span>
+							<div class="col-xs-6 col-sm-5 col-md-4 col-lg-3" style="position: absolute; bottom: 50px; text-align: left;"> <span class="text-34"><?$l->_l('5-contacts');?></span>
 								<br /> <span><i class="glyphicon glyphicon-earphone"  area-hidden="true"></i> +3-800-000-00-00</span>
 								<br /> <span><i class="glyphicon glyphicon-envelope"  area-hidden="true"></i> info@luxtour.online</span>
 								<br /> <address>
@@ -425,11 +425,11 @@ if (isset($result) && $result != "")
 						<div class="first-form">
 							<div class="panel"  style="width: 100%; max-width: 600px; padding-top: 20px;">
 								<div class="header" style="background-color:#0277bd; margin-top: -20px; padding-top: 25px;" >
-									<div class="white-text" style="font-weight: 500; text-align: center;">Замовити дзвінок</div>
+									<div class="white-text" style="font-weight: 500; text-align: center;"><?$l->_l('m-5-header');?></div>
 								</div>
 
 								<div class="pisdushka-2"></div>
-								<form>
+								<form style="margin-top: 0px;">
 									<div class="input-group" style="">
 										<span class="input-group-addon glyphicon glyphicon-user" style="background-color: #0277bd;"></span>
 										<input ng-model="phone,fullname" type="text" class="form-control" id="back-fullname" placeholder="Oleg Timofeev" required>
@@ -439,7 +439,7 @@ if (isset($result) && $result != "")
 										<input ng-model="phone.tel" type="tel" class="form-control" id="back-email" placeholder="+3 000 000 00 00" required>
 									</div>
 
-									<button ng-click="phone()" type="submit" class="btn btn-default" style="color: #FFF !important; background-color: #0277bd; margin-top: 20px;">Відправити </button>
+									<button ng-click="phone()" type="submit" class="btn btn-default" style="color: #FFF !important; background-color: #0277bd; margin-top: 20px;"><?$l->_l('m-5-btn');?> </button>
 								</form>
 							</div>
 						</div>
@@ -472,7 +472,7 @@ if (isset($result) && $result != "")
 				</script>
 				<script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBxMgwnsBsuS-N0L8BjstR8BHkMnjFIcIw&callback=initMap">
 				</script>
-				<script type="text/javascript" src="http://wp-test.in/wp-content/themes/luxtour-agents/js/landing-parallax.js"></script>
+				<script type="text/javascript" src="<? echo get_template_directory_uri(); ?>/js/landing-parallax.js"></script>
 				<? get_footer(); ?>
 
 

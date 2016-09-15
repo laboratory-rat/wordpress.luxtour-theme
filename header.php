@@ -12,12 +12,23 @@ $uri_parts = explode('?', $_SERVER['REQUEST_URI'], 2);
 
 $current_uri = 'http://' . $_SERVER['HTTP_HOST'] . $uri_parts[0];
 
+$lang = 'en';
+
+if (isset($_GET['lang']))
+{
+	$lang = clear_input($_GET['lang']);
+}
+elseif (isset($_COOKIE['lang']))
+{
+	$lang = clear_input($_COOKIE['lang']);
+
+}
 
 if (is_user_logged_in())
 {
     $navbar_args = array
     (
-        'theme_location' => 'top_basic', // menu slug from step 1
+        'theme_location' => 'top_basic_'.$lang, // menu slug from step 1
         'container' => false, // 'div' container will not be added
         'menu_class' => 'nav navbar-nav navbar-right', // <ul class="nav">
         'echo' => false,
@@ -27,7 +38,7 @@ else
 {
     $navbar_args = array
     (
-        'theme_location' => 'top_anonymus', // menu slug from step 1
+        'theme_location' => 'top_anonymus_'.$lang, // menu slug from step 1
         'container' => false, // 'div' container will not be added
         'menu_class' => 'nav navbar-nav navbar-right', // <ul class="nav">
         'echo' => false,
@@ -37,6 +48,38 @@ else
 
 $top_menu = wp_nav_menu( $navbar_args );
 
+
+$mw = array();
+switch($lang)
+{
+	case "uk":
+		$mw['login'] = "ЛОГІН";
+		$mw['keep'] = "Запам'ятати мене";
+		$mw['forgot'] = "Забули пароль?";
+		$mw['register'] = "РЕГІСТРАЦІЯ";
+		$mw['agree'] = "Я погоджуюся з правилами";
+		$mw['lang'] = "МОВА";
+		break;
+
+	case "ru":
+		$mw['login'] = "ЛОГИН";
+		$mw['keep'] = "Запомнить меня";
+		$mw['forgot'] = "Забыли пароль?";
+		$mw['register'] = "РЕГИСТРАЦИЯ";
+		$mw['agree'] = "Соглашение с правилами.";
+		$mw['lang'] = "ЯЗЫК";
+		break;
+
+	default:
+		$mw['login'] = "LOGIN";
+		$mw['keep'] = "keep me logged in.";
+		$mw['forgot'] = "Forgon password?";
+		$mw['register'] = "REGISTRATION";
+		$mw['agree'] = "I agree with the terms";
+		$mw['lang'] = "LOCALE";
+	break;
+
+}
 
 ?>
 
@@ -172,12 +215,12 @@ $lang = clear_input($_COOKIE['lang']);
 
 		<div class="nav navbar-nav navbar-right" >
 			<li style="padding-right: 60px;">
-				<a href="#" class="dropdown-toggle" data-toggle="dropdown">LOCALE</a>
+				<a href="#" class="dropdown-toggle" data-toggle="dropdown"><?echo $mw['lang'];?></a>
 				<ul id="langs-dropdown" class="dropdown-menu nav navbar-nav navbar-right">
 					<div class="" style="width:100%; height: 24px; background-color: #009688; margin-top: -5px;"></div>
 					<li><a href="<? print($current_uri); ?>?lang=en" style="font-size: 20px; width: 160px; color: rgba(0,0,0,0.87) !important;">English</a></li>
-					<li><a href="<? print($current_uri); ?>?lang=uk" style="font-size: 20px; width: 160px; color: rgba(0,0,0,0.87) !important;">Ukranian</a></li>
-					<li><a href="<? print($current_uri); ?>?lang=ru" style="font-size: 20px; width: 160px; color: rgba(0,0,0,0.87) !important;">Russian</a></li>
+					<li><a href="<? print($current_uri); ?>?lang=uk" style="font-size: 20px; width: 160px; color: rgba(0,0,0,0.87) !important;">Украінська</a></li>
+					<li><a href="<? print($current_uri); ?>?lang=ru" style="font-size: 20px; width: 160px; color: rgba(0,0,0,0.87) !important;">Русский</a></li>
 				</ul>
 			</li>
 		</div>
@@ -186,16 +229,16 @@ $lang = clear_input($_COOKIE['lang']);
 
 		<ul class="nav navbar-nav navbar-right">
           <li class="dropdown white-text" id="menuLogin">
-            <a class="dropdown-toggle" href="#" data-toggle="dropdown" id="navLogin">LOGIN</a>
+            <a class="dropdown-toggle" href="#" data-toggle="dropdown" id="navLogin"><? echo $mw['login'];?></a>
             <div id="login-dropdown" class="dropdown-menu first-form">
 				<div class="header" >
 					<span>   </span>
-					<img src="http://wp-test.in/wp-content/themes/luxtour-agents/img/login-ico.png" class="img-responsive center-block"  style=" position:relative; bottom: -10px;"/>
-					<div class="white-text" style="font-weight: 500; text-align: center; position:relative; bottom: -10px;">ВХІД</div>
+					<img src="<?echo get_template_directory_uri();?>/img/login-ico.png" class="img-responsive center-block"  style=" position:relative; bottom: -10px;"/>
+					<div class="white-text" style="font-weight: 500; text-align: center; position:relative; bottom: -10px;"><? echo $mw['login'];?></div>
 				</div>
 
 				<div class="pisdushka"></div>
-              <form name="loginform" class="form" role="form" method="post" action="http://wp-test.in/wp-login.php" accept-charset="UTF-8"   id="formLogin">
+              <form name="loginform" class="form" role="form" method="post" action="<?echo get_site_url();?>/wp-login.php" accept-charset="UTF-8" id="formLogin">
 				  <div class="input-group">
 				  	<span class="input-group-addon glyphicon glyphicon-envelope"></span>
 				  	<input class="form-control" type="email" name="log" id="login-email" required>
@@ -206,15 +249,15 @@ $lang = clear_input($_COOKIE['lang']);
 				  </div>
 				<div class="checkbox clear">
 					<label class="main-text">
-					<input name="rememberme" type="checkbox"> keep me logged-in
+					<input name="rememberme" type="checkbox"> <? echo $mw['keep'];?>
 					</label>
 				</div>
 				<div class="form-group clear">
-					<button type="submit" class="btn btn-default" style="color: #FFF !important;">Увійти</button>
+					<button type="submit" class="btn btn-default" style="color: #FFF !important;"><? echo $mw['login'];?></button>
 				</div>
               </form>
 				<div style="margin-top: 15px; text-align: center;">
-					<a href="/wp-login.php?action=lostpassword">Забули пароль?</a>
+					<a href="/wp-login.php?action=lostpassword"><? echo $mw['forgot'];?></a>
 				</div>
             </div>
           </li>
@@ -223,12 +266,12 @@ $lang = clear_input($_COOKIE['lang']);
 		<!-- User registration form -->
 		<ul class="nav navbar-nav navbar-right">
           <li class="dropdown white-text" id="menuLogin">
-            <a class="dropdown-toggle" href="#" data-toggle="dropdown" id="navLogin">REGISTRATION</a>
+            <a class="dropdown-toggle" href="#" data-toggle="dropdown" id="navLogin"><? echo $mw['register'];?></a>
             <div id="register-dropdown" class="dropdown-menu first-form">
 				<div class="header" >
 					<span>   </span>
-					<img src="http://wp-test.in/wp-content/themes/luxtour-agents/img/land-form-header.png" class="img-responsive center-block"  style=" position:relative; bottom: -10px;"/>
-					<div class="white-text" style="font-weight: 500; text-align: center; position:relative; bottom: -10px;">Регістрація</div>
+					<img src="<? echo get_template_directory_uri();?>/img/land-form-header.png" class="img-responsive center-block"  style=" position:relative; bottom: -10px;"/>
+					<div class="white-text" style="font-weight: 500; text-align: center; position:relative; bottom: -10px;"><? echo $mw['register'];?></div>
 				</div>
 
 				<div class="pisdushka"></div>
@@ -251,58 +294,17 @@ $lang = clear_input($_COOKIE['lang']);
 					</div>
 				  <div class="checkbox clear">
 					  <label style="color: rgba(0,0,0,0.87) !important;">
-							<input type="checkbox" required> Agree with tems
+							<input type="checkbox" required> <? echo $mw['agree'];?>
 						</label>
 				  </div>
 
-					<button type="submit" name="submit" value="submit" class="btn btn-default" style="color: #FFF !important;">Приєднатися </button>
+					<button type="submit" name="submit" value="submit" class="btn btn-default" style="color: #FFF !important;"><? echo $mw['register'];?> </button>
 
 				</form>
 			</div>
 			</li>
 		</ul>
 
-		<!--
-        <ul class="nav navbar-nav navbar-right">
-
-            <li >
-                <a href="#" class="dropdown-toggle" data-toggle=""><b>Login</b> <span class="caret"></span></a>
-                <ul id="login-dp" class="nav navbar-nav navbar-right" ng-show="down">
-                    <li>
-                        <div class="row">
-                                <div class="col-md-12">
-                                    <form name="loginform" class="form" role="form" method="post" action="http://wp-test.in/wp-login.php" accept-charset="UTF-8" id="login-nav">
-                                            <div class="form-group">
-                                                <label class="sr-only" for="email">Email address</label>
-                                                <input name="log" type="email" class="form-control" id="email" placeholder="Email address" required>
-                                            </div>
-                                            <div class="form-group">
-                                                <label class="sr-only" for="password">Password</label>
-                                                <input name="pwd" type="password" class="form-control" id="password" placeholder="Password" required>
-                                                <div class="help-block text-right"><a href="">Forget the password ?</a></div>
-                                            </div>
-                                            <div class="form-group">
-                                                <button type="submit" class="btn btn-primary btn-block">Sign in</button>
-                                            </div>
-                                            <div class="checkbox">
-                                                <label>
-                                                <input name="rememberme" type="checkbox"> keep me logged-in
-                                                </label>
-                                            </div>
-                                    </form>
-                                </div>
-                                <div class="bottom text-center">
-                                    New here ? <a href="http://wp-test.in/registration"><b>Join Us</b></a>
-                                </div>
-                        </div>
-                    </li>
-
-		    	</ul>
-            </li>
-
-        </ul>
-
-		-->
         <? endif; ?>
 
 
